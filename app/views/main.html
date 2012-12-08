@@ -1,14 +1,10 @@
-<table class="table">
+<table class="table" ng-controller="IndexController">
     <tr>
         <th>Mod Name</th>
         <th>Forum URL</th>
     </tr>
-    <tr>
-        <td><a href="#/mods/1">my mod name</a></td>
-        <td><a href="#">my forum url</a></td>
-    </tr>
-    <tr>
-        <td><a href="#/mods/2">my second mod</a></td>
-        <td><a href="#">my forum url</a></td>
+    <tr ng-repeat="mod in mods">
+        <td><a href="#/mods/{{mod.id}}">{{mod.name}}</a></td>
+        <td><a href="{{mod.forumLink}}">{{mod.forumLink}}</a></td>
     </tr>
 </table>
