@@ -1,0 +1,24 @@
+/* SCSS */
+@import "reset";
+
+$mainblue: #98c1c9;
+$nav-blue: darken($mainblue, 30%);
+
+header {
+  width: 100%;
+  min-height: 2em;
+  border-bottom: 2px solid darken($nav-blue, 20%);
+  background-color: $nav-blue;
+}
+
+body {
+  background-color: #98c1c9;
+}
+
+.content {
+  .table {
+    width: 50%;
+    margin: 10px auto 0 auto;
+    background-color: lighten($mainblue, 20%);
+  }
+}
