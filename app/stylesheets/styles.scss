@@ -1,24 +1,75 @@
 /* SCSS */
 @import "reset";
+@import "proto";
 
 $mainblue: #98c1c9;
 $nav-blue: darken($mainblue, 30%);
+$biege: #E9D2AF;
+$light-biege: #E7CFAB;
+$medium-red: #CD6B69;
+$darkred: #9C3634;
+
+.left{
+  margin: 0 0;
+  text-align: left;
+  float: left;
+}
+
+.categories{
+  margin-top: 10px;
+}
 
 header {
-  width: 100%;
+  width: 960px;
   min-height: 2em;
-  border-bottom: 2px solid darken($nav-blue, 20%);
-  background-color: $nav-blue;
+  height: 119px;
+  //border-bottom: 2px solid darken($nav-blue, 20%);
+  background-color: $biege;
+  background: url(../images/stamp-banner-faded.png) $biege no-repeat;
 }
 
 body {
-  background-color: #98c1c9;
+  background: url(../images/az_subtle.png) lighten($light-biege, 5%);
+  font-family: arial, helvetica, sans-serif;
+  a {
+    color: $medium-red;
+  }
 }
 
 .content {
-  .table {
-    width: 50%;
-    margin: 10px auto 0 auto;
-    background-color: lighten($mainblue, 20%);
+
+}
+
+.table {
+  width: 70%;
+  margin: 10px auto 0 auto;
+  background-color: lighten($biege, 5%);
+  padding: 8px;
+  th {
+    font-size: 1.1em;
+    background-color: lighten($darkred, 20%);
+    text-align: left;
+    color: lighten($biege, 10%);
   }
+  th, td {
+    padding: 2px 6px;
+  }
+  tr {
+  }
+}
+
+.checkboxes {
+  input[type='checkbox'] {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  background-color: lighten($mainblue, 10%);
+
+}
+
+.iframe {
+  margin-top: 20px;
+  background-color: lighten($mainblue, 20%);
+  border: 1px solid black;
+  min-height: 300px;
 }
