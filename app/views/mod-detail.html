@@ -1,23 +1,17 @@
 <div class="categories block center" ng-controller="ModController">
     <span class="left"><a href="#/">Back</a></span>
 
-    <h1 class="label">{{currentMod.name}}</h1>
+    <h1 class="mod-title">{{currentMod.name}}</h1>
 
     <form>
         <div class="checkboxes">
-            <p>
+            <div class="category" ng-repeat="category in allCategories">
                 <label>
-                    <input name="category_name?" class="category-check" type="checkbox">
-                    Category 1
+                    <input name="{{category.name}}" class="category-check" type="checkbox">
+                    {{category.name}}
                 </label>
-            </p>
+            </div>
 
-            <p>
-                <label>
-                    <input name="category_name?" class="category-check" type="checkbox">
-                    Category 2
-                </label>
-            </p>
         </div>
         <button>Submit</button>
     </form>

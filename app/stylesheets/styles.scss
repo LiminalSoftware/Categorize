@@ -8,15 +8,18 @@ $biege: #E9D2AF;
 $light-biege: #E7CFAB;
 $medium-red: #CD6B69;
 $darkred: #9C3634;
+$warm-orange: #E68E73;
 
-.left{
+.left {
   margin: 0 0;
   text-align: left;
   float: left;
 }
 
-.categories{
+.categories {
+  padding: 6px;
   margin-top: 10px;
+  background-color: $biege;
 }
 
 header {
@@ -40,6 +43,16 @@ body {
 
 }
 
+.category {
+  display: inline-block;
+  margin: 0 4px;
+}
+.mod-title {
+  font-weight: bold;
+  font-size: 1.6em;
+  color: $darkred;
+}
+
 .table {
   width: 70%;
   margin: 10px auto 0 auto;
@@ -59,17 +72,18 @@ body {
 }
 
 .checkboxes {
+  color: $darkred;
   input[type='checkbox'] {
     padding-top: 16px;
     padding-bottom: 16px;
   }
-  background-color: lighten($mainblue, 10%);
+  //background-color: lighten($warm-orange, 5%);
 
 }
 
 .iframe {
   margin-top: 20px;
-  background-color: lighten($mainblue, 20%);
-  border: 1px solid black;
+  background-color: lighten($light-biege, 10%);
+  border: 1px solid $light-biege;
   min-height: 300px;
 }

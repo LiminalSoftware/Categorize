@@ -16,8 +16,9 @@ var categorizeApp = angular.module('categorizeApp', [])
     $scope.mods = currentModService.getAllMods();
   })
 
-  .controller('ModController', function($scope, $routeParams, currentModService) {
+  .controller('ModController', function($scope, $routeParams, currentModService, categoryService) {
     $scope.currentMod = currentModService.getCurrentMod($routeParams.modId);
+    $scope.allCategories = categoryService.getAllCategories();
   })
 
   .service('currentModService', function() {
@@ -25,24 +26,41 @@ var categorizeApp = angular.module('categorizeApp', [])
     var currentMod = {};
     //we will get this from the server later...
     var allMods = [
-          {id: 1, name: 'Red Power 2', category: 'uncategorized', forumLink: 'http://www.redpower2.com'},
-          {id: 2, name: 'BuildCraft', category: 'uncategorized', forumLink: 'http://www.buildcraft.com'},
-          {id: 3, name: 'Portal Gun', category: 'uncategorized', forumLink: 'http://www.portalgun.com'}
-        ];
+      {id: 1, name: 'Red Power 2', category: 'uncategorized', forumLink: 'http://www.redpower2.com'},
+      {id: 2, name: 'BuildCraft', category: 'uncategorized', forumLink: 'http://www.buildcraft.com'},
+      {id: 3, name: 'Portal Gun', category: 'uncategorized', forumLink: 'http://www.portalgun.com'}
+    ];
     return {
-      getCurrentMod: function(id){
+      getCurrentMod: function(id) {
         var result = allMods.filter(function(mod) {
           return mod.id == id;
         });
         currentMod = result[0] || currentMod;
         return currentMod;
       },
-      setCurrentMod: function(data){
+      setCurrentMod: function(data) {
         currentMod = data || currentMod;
       },
-      getAllMods: function(){
+      getAllMods: function() {
         return allMods;
       }
     }
+  })
+
+  .service('categoryService', function() {
+    //this will be pulled from a server
+    var allCategories = [
+      {id: 1, name: 'Full Conversion'},
+      {id: 2, name: 'World Generation'},
+      {id: 3, name: 'Add-ons'},
+      {id: 4, name: 'Item Only'}
+    ];
+
+    return {
+      getAllCategories: function() {
+        return allCategories;
+      }
+    }
+
   });
 
