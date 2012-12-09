@@ -51,6 +51,7 @@ body {
   font-weight: bold;
   font-size: 1.6em;
   color: $darkred;
+  margin-bottom: 8px;
 }
 
 .table {
@@ -68,7 +69,13 @@ body {
     padding: 2px 6px;
   }
   tr {
+
   }
+}
+
+#fiterfield {
+  color: $darkred;
+  background-color: lighten($biege, 15%);
 }
 
 .checkboxes {
@@ -86,4 +93,10 @@ body {
   background-color: lighten($light-biege, 10%);
   border: 1px solid $light-biege;
   min-height: 300px;
+}
+
+.showing-count {
+  font-size: .8em;
+  font-style: italic;
+  color: darken($biege, 30%);
 }

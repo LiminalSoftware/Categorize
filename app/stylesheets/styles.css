@@ -323,7 +323,8 @@ body {
 .mod-title {
   font-weight: bold;
   font-size: 1.6em;
-  color: #9c3634; }
+  color: #9c3634;
+  margin-bottom: 8px; }
 
 .table {
   width: 70%;
@@ -338,6 +339,10 @@ body {
   .table th, .table td {
     padding: 2px 6px; }
 
+#fiterfield {
+  color: #9c3634;
+  background-color: #f9f4eb; }
+
 .checkboxes {
   color: #9c3634; }
   .checkboxes input[type='checkbox'] {
@@ -349,3 +354,8 @@ body {
   background-color: #f2e6d3;
   border: 1px solid #e7cfab;
   min-height: 300px; }
+
+.showing-count {
+  font-size: .8em;
+  font-style: italic;
+  color: #c88e37; }

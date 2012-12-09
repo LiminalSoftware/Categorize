@@ -5,7 +5,7 @@
                 <label>Filter:
                     <input ng-model="query" type="text" id="fiterfield">
                 </label>
-                Showing {{(mods | filter:query).length}} out of {{mods.length}}
+<span class="showing-count">Showing {{(mods | filter:query).length}} out of {{mods.length}}</span>
             </div>
         </td>
     </tr>
