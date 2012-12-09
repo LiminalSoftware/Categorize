@@ -317,38 +317,76 @@ body {
     color: #cd6b69; }
 
 .category {
-  display: inline-block;
-  margin: 0 4px; }
+  margin: 0 4px;
+  text-align: left; }
 
 .mod-title {
   font-weight: bold;
   font-size: 1.6em;
   color: #9c3634;
-  margin-bottom: 8px; }
+  margin-bottom: 8px;
+  font-family: 'Share Tech', sans-serif; }
 
 .table {
+  font-family: 'Share Tech', sans-serif;
   width: 70%;
   margin: 10px auto 0 auto;
   background-color: #efddc3;
   padding: 8px; }
   .table th {
     font-size: 1.1em;
-    background-color: #cd6b69;
+    background-color: #c04543;
     text-align: left;
     color: #f4e9d7; }
   .table th, .table td {
     padding: 2px 6px; }
+  .table td a {
+    font-size: 1.15em;
+    color: #c04543;
+    text-decoration: none; }
 
 #fiterfield {
   color: #9c3634;
   background-color: #f9f4eb; }
 
-.checkboxes {
+.cb {
   color: #9c3634; }
-  .checkboxes input[type='checkbox'] {
+  .cb input[type='checkbox'] {
     padding-top: 16px;
     padding-bottom: 16px; }
 
+@media all and (min-width: 1024px) {
+  .checkboxes {
+    -moz-column-count: 4;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 20px;
+    column-count: 4;
+    column-gap: 20px; } }
+@media all and (max-width: 1023px) {
+  .checkboxes {
+    -moz-column-count: 3;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 20px;
+    column-count: 3;
+    column-gap: 20px; } }
+@media all and (max-width: 840px) {
+  .checkboxes {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px; } }
+@media all and (max-width: 560px) {
+  .checkboxes {
+    -moz-column-count: 1;
+    -moz-column-gap: 10px;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 10px;
+    column-count: 1;
+    column-gap: 20px; } }
 .iframe {
   margin-top: 20px;
   background-color: #f2e6d3;

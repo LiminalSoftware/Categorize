@@ -1,6 +1,7 @@
 /* SCSS */
 @import "reset";
 @import "proto";
+@import "fonts";
 
 $mainblue: #98c1c9;
 $nav-blue: darken($mainblue, 30%);
@@ -9,6 +10,7 @@ $light-biege: #E7CFAB;
 $medium-red: #CD6B69;
 $darkred: #9C3634;
 $warm-orange: #E68E73;
+
 
 .left {
   margin: 0 0;
@@ -44,32 +46,40 @@ body {
 }
 
 .category {
-  display: inline-block;
+  //display: block;
   margin: 0 4px;
+  text-align: left;
 }
+
 .mod-title {
   font-weight: bold;
   font-size: 1.6em;
   color: $darkred;
   margin-bottom: 8px;
+  font-family: 'Share Tech', sans-serif;
 }
 
 .table {
+  font-family: 'Share Tech', sans-serif;
   width: 70%;
   margin: 10px auto 0 auto;
   background-color: lighten($biege, 5%);
   padding: 8px;
   th {
     font-size: 1.1em;
-    background-color: lighten($darkred, 20%);
+    background-color: lighten($darkred, 10%);
     text-align: left;
     color: lighten($biege, 10%);
   }
   th, td {
     padding: 2px 6px;
   }
-  tr {
-
+  td {
+    a {
+      font-size: 1.15em;
+      color: lighten($darkred, 10%);
+      text-decoration: none;
+    }
   }
 }
 
@@ -78,14 +88,56 @@ body {
   background-color: lighten($biege, 15%);
 }
 
-.checkboxes {
+.cb {
   color: $darkred;
   input[type='checkbox'] {
     padding-top: 16px;
     padding-bottom: 16px;
   }
-  //background-color: lighten($warm-orange, 5%);
+}
 
+@media all and (min-width: 1024px) {
+  .checkboxes {
+    -moz-column-count: 4;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 20px;
+    column-count: 4;
+    column-gap: 20px;
+  }
+}
+
+@media all and (max-width: 1023px) {
+  .checkboxes {
+    -moz-column-count: 3;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 20px;
+    column-count: 3;
+    column-gap: 20px;
+  }
+}
+
+@media all and (max-width: 840px) {
+  .checkboxes {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+  }
+}
+
+@media all and (max-width: 560px) {
+  .checkboxes {
+    -moz-column-count: 1;
+    -moz-column-gap: 10px;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 10px;
+    column-count: 1;
+    column-gap: 20px;
+  }
 }
 
 .iframe {
