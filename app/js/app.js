@@ -12,16 +12,16 @@ var categorizeApp = angular.module('categorizeApp', [])
       });
   })
 
-  .controller('IndexController', function IndexController($scope, currentModService) {
-    $scope.mods = currentModService.getAllMods();
+  .controller('IndexController', function IndexController($scope, modService) {
+    $scope.mods = modService.getAllMods();
   })
 
-  .controller('ModController', function($scope, $routeParams, currentModService, categoryService) {
-    $scope.currentMod = currentModService.getCurrentMod($routeParams.modId);
+  .controller('ModController', function($scope, $routeParams, modService, categoryService) {
+    $scope.currentMod = modService.getCurrentMod($routeParams.modId);
     $scope.allCategories = categoryService.getAllCategories();
   })
 
-  .service('currentModService', function() {
+  .service('modService', function() {
     'use strict';
     var currentMod = {};
     //we will get this from the server later...

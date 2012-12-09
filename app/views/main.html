@@ -1,9 +1,19 @@
 <table class="table" ng-controller="IndexController">
     <tr>
+        <td colspan="2">
+            <div class="filter">
+                <label>Filter:
+                    <input ng-model="query" type="text" id="fiterfield">
+                </label>
+                Showing {{(mods | filter:query).length}} out of {{mods.length}}
+            </div>
+        </td>
+    </tr>
+    <tr>
         <th>Mod Name</th>
         <th>Forum URL</th>
     </tr>
-    <tr ng-repeat="mod in mods">
+    <tr ng-repeat="mod in mods | filter:query">
         <td><a href="#/mods/{{mod.id}}">{{mod.name}}</a></td>
         <td><a href="{{mod.forumLink}}">{{mod.forumLink}}</a></td>
     </tr>
