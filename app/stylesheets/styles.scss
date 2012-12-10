@@ -1,7 +1,6 @@
 /* SCSS */
 @import "reset";
 @import "proto";
-@import "fonts";
 
 $mainblue: #98c1c9;
 $nav-blue: darken($mainblue, 30%);
@@ -25,12 +24,15 @@ $warm-orange: #E68E73;
 }
 
 header {
-  width: 960px;
+  width:100%;
   min-height: 2em;
   height: 119px;
-  //border-bottom: 2px solid darken($nav-blue, 20%);
-  background-color: $biege;
-  background: url(../images/stamp-banner-faded.png) $biege no-repeat;
+  font-size: 2.3em;
+  text-align: center;
+  padding-top: 2em;
+  color:$biege;
+  font-family: 'Share Tech', sans-serif;
+  background: url(../images/stamps.png) $darkred no-repeat top center;
 }
 
 body {
@@ -43,6 +45,12 @@ body {
 
 .content {
 
+}
+
+.filter {
+  label {
+    color: darken($biege, 30%);
+  }
 }
 
 .category {

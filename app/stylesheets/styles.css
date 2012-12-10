@@ -304,17 +304,24 @@ table {
   background-color: #e9d2af; }
 
 header {
-  width: 960px;
+  width: 100%;
   min-height: 2em;
   height: 119px;
-  background-color: #e9d2af;
-  background: url(../images/stamp-banner-faded.png) #e9d2af no-repeat; }
+  font-size: 2.3em;
+  text-align: center;
+  padding-top: 2em;
+  color: #e9d2af;
+  font-family: 'Share Tech', sans-serif;
+  background: url(../images/stamps.png) #9c3634 no-repeat top center; }
 
 body {
   background: url(../images/az_subtle.png) #eddabf;
   font-family: arial, helvetica, sans-serif; }
   body a {
     color: #cd6b69; }
+
+.filter label {
+  color: #c88e37; }
 
 .category {
   margin: 0 4px;
