@@ -18,7 +18,8 @@ $phoneWidth: 480px;
 
 .center {
   margin: 0 auto;
-  width: $centerWidth;
+  width: 100%;
+  text-align: center;
 }
 
 .grid .block {

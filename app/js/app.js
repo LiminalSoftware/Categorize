@@ -18,6 +18,14 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
           get: {method: 'JSONP', isArray: true}
         });
       }])
+
+    .factory('modResource', ['$resource',
+      function ($resource) {
+        return $resource('http://wiglepedia.org/mods/count/20', {callback: 'JSON_CALLBACK'}, {
+          get: {method: 'JSONP', isArray: true}
+        });
+      }])
+
     .controller('IndexController', function IndexController($scope, modService) {
       $scope.mods = modService.getAllMods();
     })
@@ -52,23 +60,6 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
         }
       }
     })
-
-//  .service('categoryService', function () {
-//    //this will be pulled from a server
-//    var allCategories = [
-//      {id: 1, name: 'Full Conversion'},
-//      {id: 2, name: 'World Generation'},
-//      {id: 3, name: 'Add-ons'},
-//      {id: 4, name: 'Item Only'}
-//    ];
-//
-//    return {
-//      getAllCategories: function () {
-//        return allCategories;
-//      }
-//    }
-//
-//  })
 
   ;
 

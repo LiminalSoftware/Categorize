@@ -1,4 +1,4 @@
-<div class="categories block center" ng-controller="ModController">
+<div class="categories center" ng-controller="ModController">
     <span class="left"><a href="#/">Back</a></span>
 
     <h1 class="mod-title">{{currentMod.name}}</h1>
@@ -13,9 +13,12 @@
             </div>
 
         </div>
-        <button class="categorize">Categorize!</button>
+        <div class="center">
+            <button class="categorize">Categorize!</button>
+        </div>
     </form>
 </div>
+    <span class="forum-url-display"><a ng-href="{{currentMod.forumLink}}">{{currentMod.forumLink}}</a></span>
 <div class="iframe block center ninety">
     Iframe here
 </div>

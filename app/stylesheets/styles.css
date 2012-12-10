@@ -61,7 +61,8 @@ table {
 
 .center {
   margin: 0 auto;
-  width: 70%; }
+  width: 100%;
+  text-align: center; }
 
 .grid .block {
   float: left; }
@@ -301,7 +302,10 @@ table {
 .categories {
   padding: 6px;
   margin-top: 10px;
-  background-color: #e9d2af; }
+  background-color: #e9d2af;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px; }
 
 header {
   width: 100%;
@@ -320,6 +324,10 @@ body {
   body a {
     color: #cd6b69; }
 
+.content {
+  margin: 0 auto;
+  width: 80%; }
+
 .filter label {
   color: #c88e37; }
 
@@ -336,17 +344,20 @@ body {
 
 .table {
   font-family: 'Share Tech', sans-serif;
-  width: 70%;
-  margin: 10px auto 0 auto;
+  width: 100%;
+  margin: 10px;
   background-color: #efddc3;
-  padding: 8px; }
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px; }
   .table th {
+    padding: 10px;
     font-size: 1.1em;
     background-color: #c04543;
     text-align: left;
     color: #f4e9d7; }
   .table th, .table td {
-    padding: 2px 6px; }
+    padding: 4px 6px; }
   .table td a {
     font-size: 1.15em;
     color: #c04543;
@@ -395,15 +406,22 @@ body {
     column-count: 1;
     column-gap: 20px; } }
 .iframe {
-  margin-top: 20px;
+  clear: both;
   background-color: #f2e6d3;
   border: 1px solid #e7cfab;
   min-height: 300px; }
 
+.forum-url-display {
+  margin-top: 20px;
+  margin-bottom: 4px;
+  float: right;
+  font-size: .8em;
+  color: #c88e37; }
+
 .showing-count {
   font-size: .8em;
-  font-style: italic;
-  color: #c88e37; }
+  color: #c88e37;
+  font-style: italic; }
 
 .categorize {
   background-color: #35909c !important;

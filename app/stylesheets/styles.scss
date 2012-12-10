@@ -10,6 +10,21 @@ $medium-red: #CD6B69;
 $darkred: #9C3634;
 $warm-orange: #E68E73;
 
+@mixin smooth-corners {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+@mixin italic {
+  font-style: italic;
+}
+
+@mixin small-text {
+  font-size: .8em;
+  color: darken($biege, 30%);
+}
+
 .left {
   margin: 0 0;
   text-align: left;
@@ -20,6 +35,7 @@ $warm-orange: #E68E73;
   padding: 6px;
   margin-top: 10px;
   background-color: $biege;
+  @include smooth-corners;
 }
 
 header {
@@ -43,6 +59,8 @@ body {
 }
 
 .content {
+  margin: 0 auto;
+  width: 80%;
 
 }
 
@@ -68,18 +86,22 @@ body {
 
 .table {
   font-family: 'Share Tech', sans-serif;
-  width: 70%;
-  margin: 10px auto 0 auto;
+  width: 100%;
+  margin: 10px;
   background-color: lighten($biege, 5%);
-  padding: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+
   th {
+    padding: 10px;
     font-size: 1.1em;
     background-color: lighten($darkred, 10%);
     text-align: left;
     color: lighten($biege, 10%);
   }
   th, td {
-    padding: 2px 6px;
+    padding: 4px 6px;
   }
   td {
     a {
@@ -148,16 +170,22 @@ body {
 }
 
 .iframe {
-  margin-top: 20px;
+  clear: both;
   background-color: lighten($light-biege, 10%);
   border: 1px solid $light-biege;
   min-height: 300px;
 }
 
+.forum-url-display {
+  margin-top: 20px;
+  margin-bottom: 4px;
+  float: right;
+  @include small-text;
+}
+
 .showing-count {
-  font-size: .8em;
-  font-style: italic;
-  color: darken($biege, 30%);
+  @include small-text;
+  @include italic;
 }
 
 .categorize {
@@ -181,7 +209,5 @@ body {
   font-weight: bold;
   line-height: normal;
   padding: 9px 14px 9px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  @include smooth-corners;
 }
