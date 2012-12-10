@@ -10,11 +10,15 @@
         </td>
     </tr>
     <tr>
+        <th>Flag to Fix</th>
         <th>Mod Name</th>
-        <th>Forum URL</th>
+        <th>Minecraft Version</th>
+        <th>Author</th>
     </tr>
     <tr ng-repeat="mod in mods | filter:query">
+        <td><a href="#/mods/fix/{{mod.id}}">fix</a></td>
         <td><a href="#/mods/{{mod.id}}">{{mod.name}}</a></td>
-        <td><a href="{{mod.forumLink}}">{{mod.forumLink}}</a></td>
+        <td class="version">{{mod.minecraft_version}}</td>
+        <td class="author">{{mod.author}}</td>
     </tr>
 </table>

@@ -21,13 +21,13 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
 
     .factory('modResource', ['$resource',
       function ($resource) {
-        return $resource('http://wiglepedia.org/mods/count/20', {callback: 'JSON_CALLBACK'}, {
+        return $resource('http://wiglepedia.org/mods/count/100', {callback: 'JSON_CALLBACK'}, {
           get: {method: 'JSONP', isArray: true}
         });
       }])
 
-    .controller('IndexController', function IndexController($scope, modService) {
-      $scope.mods = modService.getAllMods();
+    .controller('IndexController', function IndexController($scope, modService, modResource) {
+      $scope.mods = modResource.get();
     })
 
     .controller('ModController', function ($scope, $routeParams, modService, categoryResource) {

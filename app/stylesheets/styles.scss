@@ -211,3 +211,12 @@ body {
   padding: 9px 14px 9px;
   @include smooth-corners;
 }
+
+.author {
+  color: darken($biege, 40%);
+}
+
+.version {
+  color: $darkred;
+  font-weight: bold;
+}
