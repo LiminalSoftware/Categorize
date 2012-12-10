@@ -405,7 +405,7 @@ body {
     -webkit-column-count: 1;
     -webkit-column-gap: 10px;
     column-count: 1;
-    column-gap: 20px; } }
+    column-gap: 10px; } }
 .iframe {
   clear: both;
   background-color: #f2e6d3;
