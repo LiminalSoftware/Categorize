@@ -329,6 +329,10 @@ body {
   margin: 0 auto;
   width: 80%; }
 
+@media all and (max-width: 1279px) {
+  .content {
+    width: 100%;
+    margin: 0 auto; } }
 .filter label {
   color: #c88e37; }
 
@@ -410,7 +414,7 @@ body {
   clear: both;
   background-color: #f2e6d3;
   border: 1px solid #e7cfab;
-  min-height: 300px; }
+  min-height: 600px; }
 
 .forum-url-display {
   margin-top: 20px;
