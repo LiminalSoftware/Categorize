@@ -16,7 +16,7 @@
         <th>Author</th>
     </tr>
     <tr ng-repeat="mod in mods | filter:query">
-        <td><a href="#/mods/fix/{{mod.id}}">fix</a></td>
+        <td><a href="#/mods/fix/{{mod.id}}"><button class="icon-wrench"></button></a></td>
         <td><a href="#/mods/{{mod.id}}">{{mod.name}}</a></td>
         <td class="version">{{mod.minecraft_version}}</td>
         <td class="author">{{mod.author}}</td>
