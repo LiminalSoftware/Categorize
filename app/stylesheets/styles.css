@@ -1,3 +1,4 @@
+@import url(icons.css);
 /* SCSS */
 /* SCSS */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -328,6 +329,10 @@ body {
   margin: 0 auto;
   width: 80%; }
 
+@media all and (max-width: 1279px) {
+  .content {
+    width: 100%;
+    margin: 0 auto; } }
 .filter label {
   color: #c88e37; }
 
@@ -404,12 +409,12 @@ body {
     -webkit-column-count: 1;
     -webkit-column-gap: 10px;
     column-count: 1;
-    column-gap: 20px; } }
+    column-gap: 10px; } }
 .iframe {
   clear: both;
   background-color: #f2e6d3;
   border: 1px solid #e7cfab;
-  min-height: 300px; }
+  min-height: 600px; }
 
 .forum-url-display {
   margin-top: 20px;
@@ -447,3 +452,10 @@ body {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px; }
+
+.author {
+  color: #a0722c; }
+
+.version {
+  color: #9c3634;
+  font-weight: bold; }

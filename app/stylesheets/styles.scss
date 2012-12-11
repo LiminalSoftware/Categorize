@@ -1,6 +1,7 @@
 /* SCSS */
 @import "reset";
 @import "proto";
+@import "icons.css";
 
 $mainblue: #98c1c9;
 $nav-blue: darken($mainblue, 30%);
@@ -61,7 +62,13 @@ body {
 .content {
   margin: 0 auto;
   width: 80%;
+}
 
+@media all and (max-width: 1279px) {
+  .content {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 .filter {
@@ -145,6 +152,7 @@ body {
     column-count: 3;
     column-gap: 20px;
   }
+
 }
 
 @media all and (max-width: 840px) {
@@ -156,6 +164,7 @@ body {
     column-count: 2;
     column-gap: 20px;
   }
+
 }
 
 @media all and (max-width: 560px) {
@@ -165,15 +174,16 @@ body {
     -webkit-column-count: 1;
     -webkit-column-gap: 10px;
     column-count: 1;
-    column-gap: 20px;
+    column-gap: 10px;
   }
+
 }
 
 .iframe {
   clear: both;
   background-color: lighten($light-biege, 10%);
   border: 1px solid $light-biege;
-  min-height: 300px;
+  min-height: 600px;
 }
 
 .forum-url-display {
@@ -210,4 +220,13 @@ body {
   line-height: normal;
   padding: 9px 14px 9px;
   @include smooth-corners;
+}
+
+.author {
+  color: darken($biege, 40%);
+}
+
+.version {
+  color: $darkred;
+  font-weight: bold;
 }
