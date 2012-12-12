@@ -1,4 +1,4 @@
-<table class="table" ng-controller="IndexController">
+<table class="table">
     <tr>
         <td colspan="2">
             <div class="filter">
@@ -10,13 +10,13 @@
         </td>
     </tr>
     <tr>
-        <th>Flag to Fix</th>
+        <th>Flag as Broken</th>
         <th>Mod Name</th>
         <th>Minecraft Version</th>
         <th>Author</th>
     </tr>
     <tr ng-repeat="mod in mods | filter:query">
-        <td><a href="#/mods/fix/{{mod.id}}"><button class="icon-wrench"></button></a></td>
+        <td><button class="icon-wrench" ng-click="flag(mod.id)"></button></td>
         <td><a href="#/mods/{{mod.id}}">{{mod.name}}</a></td>
         <td class="version">{{mod.minecraft_version}}</td>
         <td class="author">{{mod.author}}</td>

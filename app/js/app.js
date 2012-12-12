@@ -28,9 +28,16 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
 
   .controller('IndexController', function IndexController($scope, modService) {
     $scope.mods = modService.getAllMods();
+    $scope.flag = function(modId) {
+      console.log(modId);
+      //open modal dialog
+    }
   })
 
   .controller('ModController', function ModController($scope, $routeParams, modService, categoryResource) {
+    if($routeParams.broken !== undefined) {
+      alert($routeParams.broken);
+    }
     $scope.currentMod = modService.getCurrentMod($routeParams.modId);
     $scope.allCategories = categoryResource.get();
   })
@@ -57,7 +64,6 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
       },
       getAllMods: function() {
         allMods = this.resource.get();
-        console.log(allMods);
         return allMods;
       }
     }
