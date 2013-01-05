@@ -19,13 +19,6 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
         });
     }])
 
-//    .factory('modResource', ['$resource',
-//      function($resource) {
-//        return $resource('http://wiglepedia.org/mods/count/100', {callback: 'JSON_CALLBACK'}, {
-//          get: {method: 'JSONP', isArray: true}
-//        });
-//      }])
-
     .controller('IndexController', function IndexController($scope, modService) {
         $scope.mods = modService.getAllMods();
         $scope.flag = function(modId) {
@@ -34,7 +27,7 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
         }
     })
 
-    .controller('ModController', function ModController($scope, $routeParams, modService, categoryResource, digestService) {
+    .controller('ModController', function ModController($scope, $routeParams, modService, categoryResource, digestService, eventBroadcast) {
         if ($routeParams.broken !== undefined) {
             alert($routeParams.broken);
         }
@@ -42,17 +35,46 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
         $scope.buttonClass = "icon-sign-in"
         $scope.currentMod = modService.getCurrentMod($routeParams.modId);
         $scope.allCategories = categoryResource.get();
-        $scope.checkIfAuthorized = function() {
-            if (digestService.isAuthorized()) {
-                $scope.buttonText = " Categorize!";
-                $scope.buttonClass = "icon-checkmark"
-            } else {
+
+        $scope.$on('event:authorized', function(event){
+            $scope.buttonText = " Categorize!";
+            $scope.buttonClass = "icon-checkmark";
+            $scope.$apply();
+        });
+
+        $scope.authorize = function() {
+            if (!digestService.isAuthorized()) {
                 digestService.login('http://localhost:3001/v1/users');
             }
         }
     })
 
-    .service('digestService', function() {
+    .factory('eventBroadcast', function($rootScope) {
+        // eventBroadcaster is the object created by the factory method.
+        var eventBroadcaster = {};
+
+        // The message is a string or object to carry data with the event.
+        eventBroadcaster.message = '';
+
+        // The event name is a string used to define event types.
+        eventBroadcaster.eventName = '';
+
+        // This method is called from within a controller to define an event and attach data to the eventBroadcaster object.
+        eventBroadcaster.broadcast = function(evName, msg) {
+            this.message = msg;
+            this.eventName = evName;
+            this.broadcastItem();
+        };
+
+        // This method broadcasts an event with the specified name.
+        eventBroadcaster.broadcastItem = function() {
+            $rootScope.$broadcast(this.eventName);
+        };
+
+        return eventBroadcaster;
+    })
+
+    .service('digestService', ['eventBroadcast', function(eventBroadcast) {
         var digestServiceObject = {
             authorized: false,
 
@@ -71,7 +93,9 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
                         }
                     },
                     success: function(response) {
-                        digestServiceObject.authorized = true;
+//                        digestServiceObject.authorized = true;
+                        eventBroadcast.broadcast('event:authorized', response.message);
+
                     },
                     error: function(response) {
                         //don't know wat to do yet
@@ -81,7 +105,7 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
         };
 
         return digestServiceObject;
-    })
+    }])
 
     .service('modService', ['$resource', function($resource) {
     'use strict';
