@@ -316,7 +316,7 @@ header {
   text-align: center;
   padding-top: 2em;
   color: #e9d2af;
-  font-family: "Share Tech", sans-serif;
+  font-family: 'Share Tech', sans-serif;
   background: url(../images/stamps.png) #9c3634 no-repeat top center; }
 
 body {
@@ -345,10 +345,10 @@ body {
   font-size: 1.6em;
   color: #9c3634;
   margin-bottom: 8px;
-  font-family: "Share Tech", sans-serif; }
+  font-family: 'Share Tech', sans-serif; }
 
 .table {
-  font-family: "Share Tech", sans-serif;
+  font-family: 'Share Tech', sans-serif;
   width: 100%;
   margin: 10px;
   background-color: #efddc3;

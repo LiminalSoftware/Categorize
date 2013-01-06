@@ -12,6 +12,10 @@ $darkred: #9C3634;
 $warm-orange: #E68E73;
 $torquise-light: #4cb4c1;
 $torquise-medium: #358f9b;
+$light-green: #60bf4c;
+$light-medium-green: #449936;
+$light-darker-green: #469c35;
+$light-green-variant: #418f32;
 
 @mixin buttonColorizer($bg-image-from-color, $bg-image-to-color, $bg-color, $border-colors, $text-color) {
   background-color: $bg-color !important;
@@ -217,7 +221,6 @@ body {
 }
 
 .button {
-
   -webkit-font-smoothing: antialiased;
   cursor: pointer;
   display: inline-block;
@@ -230,12 +233,12 @@ body {
 
 .green-button {
   @extend .button;
-  @include buttonColorizer(#60bf4c, #449936, #469c35, #449936 #449936 #418f32, #fff);
+  @include buttonColorizer($light-green, $light-medium-green, $light-darker-green, $light-medium-green $light-medium-green $light-green-variant, #fff);
 }
 
 .blue-button {
   @extend .button;
-  @include buttonColorizer(#4cb4c1, #358f9b, #35909C, #358f9b #358f9b #318590, #fff);
+  @include buttonColorizer($torquise-light, $torquise-medium, #35909C, $torquise-medium $torquise-medium #318590, #fff);
 }
 
 .author {
