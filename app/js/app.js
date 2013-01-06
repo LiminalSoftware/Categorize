@@ -32,13 +32,13 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
             alert($routeParams.broken);
         }
         $scope.buttonText = " Sign In";
-        $scope.buttonClass = "icon-sign-in"
+        $scope.buttonClass = "green-button icon-sign-in"
         $scope.currentMod = modService.getCurrentMod($routeParams.modId);
         $scope.allCategories = categoryResource.get();
 
         $scope.$on('event:authorized', function(event){
             $scope.buttonText = " Categorize!";
-            $scope.buttonClass = "icon-checkmark";
+            $scope.buttonClass = "blue-button icon-checkmark";
             $scope.$apply();
         });
 

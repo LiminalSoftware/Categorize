@@ -14,11 +14,12 @@
 
         </div>
         <div class="center">
-            <button class="categorize {{buttonClass}}" ng-click="authorize()">{{buttonText}}</button>
+            <button class="{{buttonClass}}" ng-click="authorize()">{{buttonText}}</button>
+            <button class="button icon-register"> Register</button>
         </div>
     </form>
 </div>
     <span class="forum-url-display"><a class="icon-link" ng-href="{{currentMod.forum_url}}" target="_blank"> {{currentMod.forum_url}}</a></span>
-<!--<iframe src="{{currentMod.forum_url}}" class="iframe block center ninety">-->
+<iframe src="{{currentMod.forum_url}}" class="iframe block center ninety">
 
-<!--</iframe>-->
+</iframe>
