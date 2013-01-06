@@ -32,7 +32,6 @@ $light-green-variant: #418f32;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.19);
 }
 
-
 @mixin smooth-corners {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -141,6 +140,37 @@ body {
   }
 }
 
+.register-container {
+  @include smooth-corners;
+  border: 1px solid $darkred;
+  background-color: #F9EDDA;
+  width: 18em;
+  margin: 4em auto;
+  padding: 1em 4em 4em 4em;
+  h3 {
+    //TODO refactor this non DRY stuff
+    padding-bottom: 2em;
+    color: $darkred;
+    font-family: 'Share Tech', sans-serif;
+  }
+  label {
+    font-size: 1.1em;
+    color: $darkred;
+    font-family: 'Share Tech', sans-serif;
+  }
+  input[type="text"] {
+    font-size: .7em;
+    margin-bottom: 1.6em;
+    width: 14em;
+    padding: .2em;
+  }
+
+  button {
+    @include buttonColorizer($light-green, $light-medium-green, $light-darker-green, $light-medium-green $light-medium-green $light-green-variant, #fff);
+    float: right;
+  }
+}
+
 #fiterfield {
   color: $darkred;
   background-color: lighten($biege, 15%);
@@ -232,6 +262,7 @@ body {
 }
 
 .green-button {
+  text-decoration: none;
   @extend .button;
   @include buttonColorizer($light-green, $light-medium-green, $light-darker-green, $light-medium-green $light-medium-green $light-green-variant, #fff);
 }
