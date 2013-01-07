@@ -158,11 +158,19 @@ body {
     color: $darkred;
     font-family: 'Share Tech', sans-serif;
   }
-  input[type="text"] {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
     font-size: .7em;
     margin-bottom: 1.6em;
     width: 14em;
     padding: .2em;
+  }
+
+  input[type="email"] {
+    &:invalid {
+      color: red;
+    }
   }
 
   button {

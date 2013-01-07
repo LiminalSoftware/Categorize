@@ -18,17 +18,28 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
 
     .factory('categoryResource', ['$resource',
     function($resource) {
-        return $resource('http://wiglepedia.org/categories', {callback: 'JSON_CALLBACK'}, {
+        return $resource('http://wiglepedia.org/v1/categories', {callback: 'JSON_CALLBACK'}, {
             get: {method: 'JSONP', isArray: true}
         });
     }])
 
-    .controller('IndexController', function IndexController($scope, modService) {
+    .controller('IndexController', function IndexController($scope, modService, digestService) {
+        //Check ifAuthorized before setting allMods, if authorized then get the mods that havn't been categorized by the current user
+        ////otherwise get mods that havn't been categorized >=10 times (by all users)
+        if (digestService.isAuthorized() === true) {
+            console.log('I am authorized');
+            modService.resource = $resource('http://wiglepedia.org/v1/mods/uncategorized/100', {callback: 'JSON_CALLBACK'}, {
+                get: {method: 'JSONP', isArray: true}
+            })
+        }
+
         $scope.mods = modService.getAllMods();
+        console.log('getting mods');
         $scope.flag = function(modId) {
             console.log(modId);
             //open modal dialog
-        }
+        };
+
     })
 
     .controller('ModController', function ModController($rootScope, $scope, $routeParams, modService, categoryResource, digestService, eventBroadcast) {
@@ -39,7 +50,7 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
         if ($scope.isAuthorized === false) {
             $scope.buttonText = " Sign In";
             $scope.buttonClass = "green-button icon-sign-in";
-        } else if($scope.isAuthorized === true) {
+        } else if ($scope.isAuthorized === true) {
             $scope.buttonText = " Categorize!";
             $scope.buttonClass = "blue-button icon-checkmark";
         }
@@ -60,8 +71,50 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
         }
     })
 
-    .controller('RegisterController', function($scope) {
+    .directive('registrationForm', function() {
+        return {
+            restrict: 'A',
+
+            link: function(scope, element, attrs) {
+                scope.submitRegistration = function() {
+                    if (scope.password == $scope.passwordConfirm) {
+                        //TODO: grab the realm from the backend, how?
+                        // 1) backend route to provide realm,
+                        // 2) hit protected resource & parse response header
+
+                        scope.passwordHash = digestService.hexDigest($scope.username, $scope.password, 'wiglepedia login');
+                    }
+
+                    $.ajax({
+                        url: 'http://localhost:3001/v1/users',
+                        type: 'post',
+//                header: {Origin: document.domain},
+                        data: {
+                            user: {
+                                username: scope.username,
+                                email: scope.email,
+                                password_hash: scope.passwordHash
+                            }
+                        }
+                    })
+                        .success(function(data) {
+
+                        })
+
+                        .fail(function(data) {
+
+                        })
+                }
+            }
+        }
+    })
+
+    .controller('RegisterController', function($scope, $http, digestService, eventBroadcast) {
         'use strict';
+
+//        $http.jsonp('url').success(function (data) {
+//            $scope.data = data;
+//        });
 
     })
 
@@ -91,40 +144,45 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
     })
 
     .service('digestService', ['eventBroadcast', function(eventBroadcast) {
-        return {
-            authorized: false,
+    return {
+        authorized: false,
 
-            isAuthorized: function() {
-                return this.authorized;
-            },
+        isAuthorized: function() {
+            return this.authorized;
+        },
 
-            login: function(uri) {
-                $.ajax({
-                    url: uri,
-                    type: this.HTTP_METHOD,
-                    dataType: 'jsonp',
-                    beforeSend: function(request) {
-                        if (typeof authorizationHeader != 'undefined') {
-                            request.setRequestHeader(digestAuth.AUTHORIZATION_HEADER, authorizationHeader);
-                        }
-                    },
-                    success: function(response) {
-                        eventBroadcast.broadcast('event:authorized', response.message);
+        hexDigest: function(username, secret, realm) {
+            realm = realm || "Application";
+            return hex_md5(username + ":" + realm + ":" + secret);
+        },
 
-                    },
-                    error: function(response) {
-                        //don't know wat to do yet
+        login: function(uri) {
+            $.ajax({
+                url: uri,
+                type: this.HTTP_METHOD,
+                dataType: 'jsonp',
+                beforeSend: function(request) {
+                    if (typeof authorizationHeader != 'undefined') {
+                        request.setRequestHeader(digestAuth.AUTHORIZATION_HEADER, authorizationHeader);
                     }
-                });
-            }
-        };
-    }])
+                },
+                success: function(response) {
+                    eventBroadcast.broadcast('event:authorized', response.message);
+
+                },
+                error: function(response) {
+                    //don't know wat to do yet
+                }
+            });
+        }
+    };
+}])
 
     .service('modService', ['$resource', function($resource) {
     'use strict';
     var currentMod = {};
     var allMods = [];
-    var res = $resource('http://wiglepedia.org/mods/count/100', {callback: 'JSON_CALLBACK'}, {
+    var res = $resource('http://wiglepedia.org/v1/mods/incomplete/100', {callback: 'JSON_CALLBACK'}, {
         get: {method: 'JSONP', isArray: true}
     });
 

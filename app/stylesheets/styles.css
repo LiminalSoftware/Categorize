@@ -316,7 +316,7 @@ header {
   text-align: center;
   padding-top: 2em;
   color: #e9d2af;
-  font-family: 'Share Tech', sans-serif;
+  font-family: "Share Tech", sans-serif;
   background: url(../images/stamps.png) #9c3634 no-repeat top center; }
 
 body {
@@ -345,10 +345,10 @@ body {
   font-size: 1.6em;
   color: #9c3634;
   margin-bottom: 8px;
-  font-family: 'Share Tech', sans-serif; }
+  font-family: "Share Tech", sans-serif; }
 
 .table {
-  font-family: 'Share Tech', sans-serif;
+  font-family: "Share Tech", sans-serif;
   width: 100%;
   margin: 10px;
   background-color: #efddc3;
@@ -380,16 +380,20 @@ body {
   .register-container h3 {
     padding-bottom: 2em;
     color: #9c3634;
-    font-family: 'Share Tech', sans-serif; }
+    font-family: "Share Tech", sans-serif; }
   .register-container label {
     font-size: 1.1em;
     color: #9c3634;
-    font-family: 'Share Tech', sans-serif; }
-  .register-container input[type="text"] {
+    font-family: "Share Tech", sans-serif; }
+  .register-container input[type="text"],
+  .register-container input[type="email"],
+  .register-container input[type="password"] {
     font-size: .7em;
     margin-bottom: 1.6em;
     width: 14em;
     padding: .2em; }
+  .register-container input[type="email"]:invalid {
+    color: red; }
   .register-container button {
     background-color: #469c35 !important;
     background-repeat: repeat-x;
