@@ -140,7 +140,7 @@ body {
   }
 }
 
-.registration-form {
+.registration-form-common {
   @include smooth-corners;
   border: 1px solid $darkred;
   background-color: #F9EDDA;
@@ -176,6 +176,20 @@ body {
   button {
     @include buttonColorizer($light-green, $light-medium-green, $light-darker-green, $light-medium-green $light-medium-green $light-green-variant, #fff);
     float: right;
+  }
+}
+
+.registration-form {
+  @extend .registration-form-common;
+  background-color: #F9EDDA;
+}
+
+.registration-form-error {
+  @extend .registration-form-common;
+  background-color: #FFBDA4;
+  span {
+    color: $darkred;
+    font-size: 0.8em;
   }
 }
 
@@ -244,12 +258,7 @@ body {
 
 //=============== State =================\\
 
-
-
 //=============== Theme =================\\
-
-
-
 
 //TODO: media queries need to be contextual to the modules that they change
 @media all and (max-width: 1279px) {

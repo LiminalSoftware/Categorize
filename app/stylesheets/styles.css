@@ -364,7 +364,7 @@ body {
 .filter-field-container label {
   color: #c88e37; }
 
-.registration-form {
+.registration-form-common, .registration-form, .registration-form-error {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -373,24 +373,28 @@ body {
   width: 18em;
   margin: 4em auto;
   padding: 1em 4em 4em 4em; }
-  .registration-form h3 {
+  .registration-form-common h3, .registration-form h3, .registration-form-error h3 {
     padding-bottom: 2em;
     color: #9c3634;
     font-family: "Share Tech", sans-serif; }
-  .registration-form label {
+  .registration-form-common label, .registration-form label, .registration-form-error label {
     font-size: 1.1em;
     color: #9c3634;
     font-family: "Share Tech", sans-serif; }
-  .registration-form input[type="text"],
+  .registration-form-common input[type="text"], .registration-form input[type="text"], .registration-form-error input[type="text"],
+  .registration-form-common input[type="email"],
   .registration-form input[type="email"],
-  .registration-form input[type="password"] {
+  .registration-form-error input[type="email"],
+  .registration-form-common input[type="password"],
+  .registration-form input[type="password"],
+  .registration-form-error input[type="password"] {
     font-size: .7em;
     margin-bottom: 1.6em;
     width: 14em;
     padding: .2em; }
-  .registration-form input[type="email"]:invalid {
+  .registration-form-common input[type="email"]:invalid, .registration-form input[type="email"]:invalid, .registration-form-error input[type="email"]:invalid {
     color: red; }
-  .registration-form button {
+  .registration-form-common button, .registration-form button, .registration-form-error button {
     background-color: #469c35 !important;
     background-repeat: repeat-x;
     background-image: -khtml-gradient(linear, left top, left bottom, from(#60bf4c), to(#449936));
@@ -404,6 +408,15 @@ body {
     color: white !important;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.19);
     float: right; }
+
+.registration-form {
+  background-color: #F9EDDA; }
+
+.registration-form-error {
+  background-color: #FFBDA4; }
+  .registration-form-error span {
+    color: #9c3634;
+    font-size: 0.8em; }
 
 #fiterfield {
   color: #9c3634;
