@@ -3,6 +3,7 @@
 @import "proto";
 @import "icons.css";
 
+//colors:
 $mainblue: #98c1c9;
 $nav-blue: darken($mainblue, 30%);
 $biege: #E9D2AF;
@@ -17,6 +18,7 @@ $light-medium-green: #449936;
 $light-darker-green: #469c35;
 $light-green-variant: #418f32;
 
+//mixins & functions
 @mixin buttonColorizer($bg-image-from-color, $bg-image-to-color, $bg-color, $border-colors, $text-color) {
   background-color: $bg-color !important;
   background-repeat: repeat-x;
@@ -60,6 +62,7 @@ $light-green-variant: #418f32;
   @include smooth-corners;
 }
 
+//=============== Base =================\\
 header {
   width: 100%;
   min-height: 2em;
@@ -80,25 +83,14 @@ body {
   }
 }
 
+//=============== Layout =================\\
 .content {
   margin: 0 auto;
   width: 80%;
 }
 
-@media all and (max-width: 1279px) {
-  .content {
-    width: 100%;
-    margin: 0 auto;
-  }
-}
-
-.filter {
-  label {
-    color: darken($biege, 30%);
-  }
-}
-
-.category {
+//=============== Module =================\\
+.mod-category {
   //display: block;
   margin: 0 4px;
   text-align: left;
@@ -112,7 +104,7 @@ body {
   font-family: 'Share Tech', sans-serif;
 }
 
-.table {
+.mods-table {
   font-family: 'Share Tech', sans-serif;
   width: 100%;
   margin: 10px;
@@ -128,9 +120,11 @@ body {
     text-align: left;
     color: lighten($biege, 10%);
   }
+
   th, td {
     padding: 4px 6px;
   }
+
   td {
     a {
       font-size: 1.15em;
@@ -140,7 +134,13 @@ body {
   }
 }
 
-.register-container {
+.filter-field-container {
+  label {
+    color: darken($biege, 30%);
+  }
+}
+
+.registration-form {
   @include smooth-corners;
   border: 1px solid $darkred;
   background-color: #F9EDDA;
@@ -192,6 +192,73 @@ body {
   }
 }
 
+.forum-url-display {
+  margin-top: 20px;
+  margin-bottom: 4px;
+  float: right;
+  @include small-text;
+}
+
+.showing-count {
+  @include small-text;
+  @include italic;
+}
+
+.generic-button {
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.0em;
+  font-weight: bold;
+  line-height: normal;
+  padding: 9px 14px 9px;
+  @include smooth-corners;
+}
+
+.green-button {
+  text-decoration: none;
+  @extend .generic-button;
+  @include buttonColorizer($light-green, $light-medium-green, $light-darker-green, $light-medium-green $light-medium-green $light-green-variant, #fff);
+}
+
+.blue-button {
+  @extend .generic-button;
+  @include buttonColorizer($torquise-light, $torquise-medium, #35909C, $torquise-medium $torquise-medium #318590, #fff);
+}
+
+.mod-author {
+  color: darken($biege, 40%);
+}
+
+.minecraft-version {
+  color: $darkred;
+  font-weight: bold;
+}
+
+.iframe {
+  clear: both;
+  background-color: lighten($light-biege, 10%);
+  border: 1px solid $light-biege;
+  min-height: 600px;
+}
+
+//=============== State =================\\
+
+
+
+//=============== Theme =================\\
+
+
+
+
+//TODO: media queries need to be contextual to the modules that they change
+@media all and (max-width: 1279px) {
+  .content {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
 @media all and (min-width: 1024px) {
   .checkboxes {
     -moz-column-count: 4;
@@ -239,52 +306,3 @@ body {
 
 }
 
-.iframe {
-  clear: both;
-  background-color: lighten($light-biege, 10%);
-  border: 1px solid $light-biege;
-  min-height: 600px;
-}
-
-.forum-url-display {
-  margin-top: 20px;
-  margin-bottom: 4px;
-  float: right;
-  @include small-text;
-}
-
-.showing-count {
-  @include small-text;
-  @include italic;
-}
-
-.button {
-  -webkit-font-smoothing: antialiased;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 1.0em;
-  font-weight: bold;
-  line-height: normal;
-  padding: 9px 14px 9px;
-  @include smooth-corners;
-}
-
-.green-button {
-  text-decoration: none;
-  @extend .button;
-  @include buttonColorizer($light-green, $light-medium-green, $light-darker-green, $light-medium-green $light-medium-green $light-green-variant, #fff);
-}
-
-.blue-button {
-  @extend .button;
-  @include buttonColorizer($torquise-light, $torquise-medium, #35909C, $torquise-medium $torquise-medium #318590, #fff);
-}
-
-.author {
-  color: darken($biege, 40%);
-}
-
-.version {
-  color: $darkred;
-  font-weight: bold;
-}
