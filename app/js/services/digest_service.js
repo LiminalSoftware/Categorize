@@ -1,7 +1,9 @@
 categorizeApp.service('digestService', function($http) {
+  console.log('digestService: setting authorized to false!');
   var authorized = false;
 
   this.isAuthorized = function() {
+    console.log('checking authorization...' + authorized);
     return authorized;
   };
 
@@ -11,7 +13,10 @@ categorizeApp.service('digestService', function($http) {
   };
 
   this.login = function() {
-    return $http.jsonp('http://localhost:3000/v1/users?callback=JSON_CALLBACK');
+    return $http.jsonp('http://localhost:3000/v1/users?callback=JSON_CALLBACK')
+      .success(function() {
+        authorized = true;
+      });
 
 //      beforeSend: function(request) {
 //        if (typeof authorizationHeader != 'undefined') {

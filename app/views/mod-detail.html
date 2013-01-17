@@ -7,14 +7,14 @@
         <div class="checkboxes cb">
             <div class="mod-category" ng-repeat="category in allCategories">
                 <label>
-                    <input name="{{category.name}}" class="category-check" type="checkbox">
+                    <input name="{{category.name}}" class="category-check" type="checkbox" value="{{category.id}}">
                     {{category.name}}
                 </label>
             </div>
 
         </div>
         <div class="center">
-            <button class="{{buttonClass}}" ng-click="authorize()">{{buttonText}}</button> or &nbsp;
+            <button class="{{buttonClass}}" ng-click="authorizeOrCategorize()">{{buttonText}}</button> or &nbsp;
             <a href="#/register" class="green-button icon-register"> Register</a>
         </div>
     </form>

@@ -1,5 +1,6 @@
-var categorizeApp = angular.module('categorizeApp', ['ngResource'])
+var categorizeApp = angular.module('categorizeApp', ['categorizeApp'])
   .config(function($routeProvider) {
+//    $rootScope.apiBaseUrl = 'http://localhost:3000/v1';
 
     $routeProvider.
       when('/', {
@@ -15,17 +16,3 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
         templateUrl: 'views/register.html'
       })
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-

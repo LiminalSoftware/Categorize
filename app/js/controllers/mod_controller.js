@@ -1,4 +1,4 @@
-categorizeApp.controller('ModController', function ModController($scope, $routeParams, modService, categoryService, digestService) {
+categorizeApp.controller('ModController', function ModController($scope, $routeParams, modService, categoryService, digestService, categorizeService) {
   if ($routeParams.broken !== undefined) {
     alert($routeParams.broken);
   }
@@ -22,7 +22,19 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
     }
   );
 
-  $scope.authorize = function() {
+  $scope.findSelectedCategories = function() {
+    var checked = [];
+
+    $('input[type="checkbox"].category-check').each(
+      function(index, element) {
+        element.checked ? checked.push(element.value) : undefined;
+      }
+    );
+
+    return checked;
+  };
+
+  $scope.authorizeOrCategorize = function() {
     if (!digestService.isAuthorized()) {
       digestService.login()
         .success(function(data) {
@@ -30,9 +42,11 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
           $scope.buttonText = " Categorize!";
           $scope.buttonClass = "blue-button icon-checkmark";
         })
-        .error(function(){console.log('error happened!?')})
-    }else{
-      console.log('else happened!?')
+        .error(function() {
+          console.log('error happened!?')
+        })
+    } else {
+      categorizeService.submitCategorization($scope.mod.id, $scope.findSelectedCategories())
     }
   };
 
