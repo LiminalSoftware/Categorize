@@ -1,28 +1,45 @@
-categorizeApp.controller('ModController', function ModController($rootScope, $scope, $routeParams, modService, categoryResource, digestService) {
+categorizeApp.controller('ModController', function ModController($scope, $routeParams, modService, categoryService, digestService) {
   if ($routeParams.broken !== undefined) {
     alert($routeParams.broken);
   }
-  $rootScope.isAuthorized = $rootScope.isAuthorized || false;
-  if ($scope.isAuthorized === false) {
+  if (digestService.isAuthorized() === false) {
     $scope.buttonText = " Sign In";
     $scope.buttonClass = "green-button icon-sign-in";
-  } else if ($scope.isAuthorized === true) {
+  } else if (digestService.isAuthorized() === true) {
     $scope.buttonText = " Categorize!";
     $scope.buttonClass = "blue-button icon-checkmark";
   }
-  $scope.currentMod = modService.getCurrentMod($routeParams.modId);
-  $scope.allCategories = categoryResource.get();
-
-//  $scope.$on('event:authorized', function(event) {
-//    $rootScope.isAuthorized = true;
-//    $scope.buttonText = " Categorize!";
-//    $scope.buttonClass = "blue-button icon-checkmark";
-//    $scope.$apply();
-//  });
+//  $scope.currentMod = modService.getCurrentMod($routeParams.modId);
+//  $scope.allCategories = categoryService.getCategories();
+  categoryService.getCategories().success(
+    function(data) {
+      console.log('getting categories');
+      $scope.allCategories = data;
+    }
+  ).error(
+    function(data) {
+      console.log('failed to get categories')
+    }
+  );
 
   $scope.authorize = function() {
     if (!digestService.isAuthorized()) {
-      digestService.login('http://localhost:3001/v1/users');
+      digestService.login()
+        .success(function(data) {
+          console.log('logging in...');
+          $scope.buttonText = " Categorize!";
+          $scope.buttonClass = "blue-button icon-checkmark";
+        })
+        .error(function(){console.log('error happened!?')})
+    }else{
+      console.log('else happened!?')
     }
-  }
+  };
+
+//  $scope.mod = modService.getMod($routeParams.modId)
+  modService.getMod($routeParams.modId).success(
+    function(data) {
+      $scope.mod = data;
+    }
+  );
 });

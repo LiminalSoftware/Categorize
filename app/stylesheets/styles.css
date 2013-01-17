@@ -494,6 +494,10 @@ body {
   border: 1px solid #e7cfab;
   min-height: 600px; }
 
+label.validation-message {
+  display: none;
+  color: red; }
+
 @media all and (max-width: 1279px) {
   .content {
     width: 100%;

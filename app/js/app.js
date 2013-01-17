@@ -16,12 +16,13 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
       })
   })
 
-  .factory('categoryResource', ['$resource',
-    function($resource) {
-      return $resource('http://localhost:3000/v1/categories', {callback: 'JSON_CALLBACK'}, {
-        get: {method: 'JSONP', isArray: true}
-      });
-    }]);
+  .service('categoryService', function($http) {
+    var url = 'http://localhost:3000/v1/categories'
+
+    this.getCategories = function() {
+      return $http.jsonp(url + '?callback=JSON_CALLBACK')
+    }
+  });
 
 
 

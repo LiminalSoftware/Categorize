@@ -258,6 +258,11 @@ body {
 
 //=============== State =================\\
 
+label.validation-message {
+  display: none;
+  color: red;
+}
+
 //=============== Theme =================\\
 
 //TODO: media queries need to be contextual to the modules that they change
