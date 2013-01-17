@@ -257,7 +257,13 @@ body {
 }
 
 //=============== State =================\\
-
+input:focus:invalid {
+  background: #fff url("../images/invalid.png") no-repeat 98% center !important;
+  border-color: #f36;
+}
+input:required:valid {
+  background: #fff url("../images/valid.png") no-repeat 98% center;
+}
 //=============== Theme =================\\
 
 //TODO: media queries need to be contextual to the modules that they change
