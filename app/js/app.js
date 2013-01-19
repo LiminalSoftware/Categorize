@@ -1,5 +1,6 @@
-var categorizeApp = angular.module('categorizeApp', ['ngResource'])
+var categorizeApp = angular.module('categorizeApp', ['categorizeApp'])
   .config(function($routeProvider) {
+//    $rootScope.apiBaseUrl = 'http://localhost:3000/v1';
 
     $routeProvider.
       when('/', {
@@ -14,23 +15,4 @@ var categorizeApp = angular.module('categorizeApp', ['ngResource'])
         controller: 'RegisterController',
         templateUrl: 'views/register.html'
       })
-  })
-
-  .factory('categoryResource', ['$resource',
-    function($resource) {
-      return $resource('http://localhost:3000/v1/categories', {callback: 'JSON_CALLBACK'}, {
-        get: {method: 'JSONP', isArray: true}
-      });
-    }]);
-
-
-
-
-
-
-
-
-
-
-
-
+  });

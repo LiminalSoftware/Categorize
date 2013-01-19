@@ -264,6 +264,12 @@ input:focus:invalid {
 input:required:valid {
   background: #fff url("../images/valid.png") no-repeat 98% center;
 }
+
+label.validation-message {
+  display: none;
+  color: red;
+}
+
 //=============== Theme =================\\
 
 //TODO: media queries need to be contextual to the modules that they change
