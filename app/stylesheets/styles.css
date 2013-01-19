@@ -494,9 +494,19 @@ body {
   border: 1px solid #e7cfab;
   min-height: 600px; }
 
+input:focus:invalid {
+  background: white url("../images/invalid.png") no-repeat 98% center !important;
+  border-color: #f36; }
+
+input:required:valid {
+  background: white url("../images/valid.png") no-repeat 98% center; }
+
 label.validation-message {
   display: none;
   color: red; }
+
+.hidden {
+  display: none; }
 
 @media all and (max-width: 1279px) {
   .content {

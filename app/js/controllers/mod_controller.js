@@ -1,13 +1,21 @@
 categorizeApp.controller('ModController', function ModController($scope, $routeParams, modService, categoryService, digestService, categorizeService) {
+  $scope.registerButtonClass = "green-button icon-register";
+
+  $scope.goRegister = function() {
+    $location.path("register");
+  }
+
   if ($routeParams.broken !== undefined) {
     alert($routeParams.broken);
   }
   if (digestService.isAuthorized() === false) {
     $scope.buttonText = " Sign In";
     $scope.buttonClass = "green-button icon-sign-in";
+    $scope.registerButtonClass = "green-button icon-register";
   } else if (digestService.isAuthorized() === true) {
     $scope.buttonText = " Categorize!";
     $scope.buttonClass = "blue-button icon-checkmark";
+    $scope.registerButtonClass = "hidden";
   }
 //  $scope.currentMod = modService.getCurrentMod($routeParams.modId);
 //  $scope.allCategories = categoryService.getCategories();
@@ -41,6 +49,7 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
           console.log('logging in...');
           $scope.buttonText = " Categorize!";
           $scope.buttonClass = "blue-button icon-checkmark";
+          $scope.registerButtonClass = "hidden";
         })
         .error(function() {
           console.log('error happened!?')
