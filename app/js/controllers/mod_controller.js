@@ -11,7 +11,7 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
         $location.path("/");
       })
       .error(function(error) {
-        alert('error: ' + error);
+        alert('error: ' + error.message);
         $location.path("/");
       });
   }

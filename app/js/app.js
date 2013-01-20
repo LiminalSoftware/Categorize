@@ -1,6 +1,7 @@
 var categorizeApp = angular.module('categorizeApp', [])
   .config(['$routeProvider',  function($routeProvider) {
 //    $rootScope.apiBaseUrl = 'http://localhost:3000/v1';
+    $.ajaxSetup({ cache: false });
 
     $routeProvider.
       when('/', {
