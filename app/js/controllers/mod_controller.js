@@ -1,8 +1,7 @@
 categorizeApp.controller('ModController', function ModController($scope, $routeParams, $location, modService, categoryService, digestService, categorizeService) {
-  $scope.wizardPartial = 'views/q1.html';
   $scope.registerButtonClass = "green-button icon-register";
 
-  $scope.goNext = function(url) {
+  $scope.wizardNext = function(url) {
     $scope.wizardPartial = url;
   };
 
@@ -38,10 +37,12 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
 //    alert($routeParams.broken);
 //  }
   if (digestService.isAuthorized() === false) {
+    $scope.wizardPartial = 'views/wizard/categorize.html';
     $scope.buttonText = " Sign In";
     $scope.buttonClass = "green-button icon-sign-in";
     $scope.registerButtonClass = "green-button icon-register";
   } else if (digestService.isAuthorized() === true) {
+    $scope.wizardPartial = 'views/wizard/no-mod.html';
     $scope.buttonText = " Categorize!";
     $scope.buttonClass = "blue-button icon-checkmark";
     $scope.registerButtonClass = "hidden";
@@ -79,6 +80,7 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
           $scope.buttonText = " Categorize!";
           $scope.buttonClass = "blue-button icon-checkmark";
           $scope.registerButtonClass = "hidden";
+          $scope.wizardNext('views/wizard/no-mod.html');
         })
         .error(function() {
           console.log('error happened!?')
