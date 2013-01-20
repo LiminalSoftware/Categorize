@@ -1,13 +1,42 @@
-categorizeApp.controller('ModController', function ModController($scope, $routeParams, modService, categoryService, digestService, categorizeService) {
+categorizeApp.controller('ModController', function ModController($scope, $routeParams, $location, modService, categoryService, digestService, categorizeService) {
+  $scope.wizardPartial = 'views/q1.html';
   $scope.registerButtonClass = "green-button icon-register";
+
+  $scope.goNext = function(url) {
+    $scope.wizardPartial = url;
+  };
+
+  $scope.setAsBroken = function(modId) {
+    modService.postBroken(modId)
+      .success(function() {
+        $location.path("/");
+      })
+      .error(function(error) {
+        alert('error: ' + error);
+        $location.path("/");
+      });
+  }
+
+  $scope.reportNoMod = function() {
+    var modId = $routeParams.modId;
+    //we can use this distinction between no mod and multiple mod to set a field on the db
+    //the post does not contain a mod!
+    $scope.setAsBroken(modId);
+  };
+
+  $scope.reportMultipleMods = function() {
+    var modId = $routeParams.modId;
+    //the post contains multiple mods!
+    $scope.setAsBroken(modId);
+  };
 
   $scope.goRegister = function() {
     $location.path("register");
   }
 
-  if ($routeParams.broken !== undefined) {
-    alert($routeParams.broken);
-  }
+//  if ($routeParams.broken !== undefined) {
+//    alert($routeParams.broken);
+//  }
   if (digestService.isAuthorized() === false) {
     $scope.buttonText = " Sign In";
     $scope.buttonClass = "green-button icon-sign-in";

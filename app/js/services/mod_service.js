@@ -9,4 +9,8 @@ categorizeApp.service('modService', function($http) {
   this.getMod = function(id) {
     return $http.jsonp('http://localhost:3000/v1/mods/' + id + '?callback=JSON_CALLBACK')
   };
+
+  this.postBroken = function(id) {
+    return $http.jsonp('http://localhost:3000/v1/mods/' + id + '/broken?callback=JSON_CALLBACK')
+  }
 });

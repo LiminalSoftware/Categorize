@@ -18,6 +18,11 @@ $light-medium-green: #449936;
 $light-darker-green: #469c35;
 $light-green-variant: #418f32;
 
+$light-pink: #d54b49;
+$light-medium-pink: #d54b49;
+$medium-pink: #d54b49;
+$dark-pink: #d54b49;
+
 //mixins & functions
 @mixin buttonColorizer($bg-image-from-color, $bg-image-to-color, $bg-color, $border-colors, $text-color) {
   background-color: $bg-color !important;
@@ -56,6 +61,8 @@ $light-green-variant: #418f32;
 }
 
 .categories {
+  max-width: none;
+  overflow: hidden;
   padding: 6px;
   margin-top: 10px;
   background-color: $biege;
@@ -256,11 +263,58 @@ body {
   min-height: 600px;
 }
 
+.question-container {
+  background-color: $darkred;
+  padding: 2em 0;
+  color: $light-biege;
+  font-size: 1.1em;
+  .question-box {
+    width: 55%;
+    margin: 0 auto;
+    span {
+      display: block;
+      margin-bottom: .5em;
+    }
+
+    button.sadpath {
+      float: left;
+      text-decoration: none;
+      @extend .generic-button;
+      @include buttonColorizer($light-pink, $light-medium-pink, $medium-pink, $medium-pink $light-medium-pink $dark-pink, #fff);
+    }
+
+    button.happypath {
+      float: right;
+      text-decoration: none;
+      @extend .generic-button;
+      @include buttonColorizer($light-green, $light-medium-green, $light-darker-green, $light-medium-green $light-medium-green $light-green-variant, #fff);
+      color: $light-green;
+    }
+  }
+}
+
+.progressbar-container {
+  float: none;
+  clear: both;
+  margin: 0 auto;
+  border: 1px solid darken($darkred, 20%);
+  background-color: darken($darkred, 10%);
+  min-height: 9px;
+  height: 9px;
+  .slider {
+    width: 33.33%;
+    min-height: 7px;
+    background-color: $light-green;
+  }
+
+}
+
 //=============== State =================\\
 input:focus:invalid {
   background: #fff url("../images/invalid.png") no-repeat 98% center !important;
   border-color: #f36;
 }
+
 input:required:valid {
   background: #fff url("../images/valid.png") no-repeat 98% center;
 }

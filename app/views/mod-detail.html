@@ -3,23 +3,11 @@
 
     <h1 class="mod-title">{{mod.name}}</h1>
 
-    <form>
-        <div class="checkboxes cb">
-            <div class="mod-category" ng-repeat="category in allCategories">
-                <label>
-                    <input name="{{category.name}}" class="category-check" type="checkbox" value="{{category.id}}">
-                    {{category.name}}
-                </label>
-            </div>
-
-        </div>
-        <div class="center">
-            <button class="{{buttonClass}}" ng-click="authorizeOrCategorize()">{{buttonText}}</button>
-            <button class="{{registerButtonClass}}" ng-click="goRegister()">Register</button>
-        </div>
-    </form>
+    <div class="wizard">
+        <ng-include src='wizardPartial'></ng-include>
+    </div>
 </div>
-    <span class="forum-url-display"><a class="icon-link" ng-href="{{mod.forum_url}}" target="_blank"> {{mod.forum_url}}</a></span>
+<span class="forum-url-display"><a class="icon-link" ng-href="{{mod.forum_url}}" target="_blank"> {{mod.forum_url}}</a></span>
 <iframe src="{{mod.forum_url}}" class="iframe block center ninety">
 
 </iframe>
