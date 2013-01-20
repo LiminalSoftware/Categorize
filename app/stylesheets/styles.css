@@ -301,6 +301,8 @@ table {
   float: left; }
 
 .categories {
+  max-width: none;
+  overflow: hidden;
   padding: 6px;
   margin-top: 10px;
   background-color: #e9d2af;

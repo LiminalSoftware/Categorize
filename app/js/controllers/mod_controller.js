@@ -1,4 +1,10 @@
-categorizeApp.controller('ModController', function ModController($scope, $routeParams, modService, categoryService, digestService, categorizeService) {
+categorizeApp.controller('ModController', function ModController($scope, $routeParams, $location, modService, categoryService, digestService, categorizeService) {
+  $scope.wizardPartial = 'views/q1.html';
+
+  $scope.goNext = function(url){
+    $scope.wizardPartial = url;
+  };
+
   $scope.registerButtonClass = "green-button icon-register";
 
   $scope.goRegister = function() {

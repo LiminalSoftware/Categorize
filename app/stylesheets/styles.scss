@@ -56,6 +56,8 @@ $light-green-variant: #418f32;
 }
 
 .categories {
+  max-width: none;
+  overflow: hidden;
   padding: 6px;
   margin-top: 10px;
   background-color: $biege;
@@ -256,11 +258,24 @@ body {
   min-height: 600px;
 }
 
+//.wizard {
+//  background-color: lightgreen;
+//  max-width: none;
+//  width: 3500px;
+//  &>div {
+//    //margin: 0 150em;
+//    display: inline-block;
+//    background-color: lightcyan;
+//    width:  800px;
+//  }
+//}
+
 //=============== State =================\\
 input:focus:invalid {
   background: #fff url("../images/invalid.png") no-repeat 98% center !important;
   border-color: #f36;
 }
+
 input:required:valid {
   background: #fff url("../images/valid.png") no-repeat 98% center;
 }

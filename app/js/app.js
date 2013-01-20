@@ -1,5 +1,5 @@
-var categorizeApp = angular.module('categorizeApp', ['categorizeApp'])
-  .config(function($routeProvider) {
+var categorizeApp = angular.module('categorizeApp', [])
+  .config(['$routeProvider',  function($routeProvider) {
 //    $rootScope.apiBaseUrl = 'http://localhost:3000/v1';
 
     $routeProvider.
@@ -15,4 +15,6 @@ var categorizeApp = angular.module('categorizeApp', ['categorizeApp'])
         controller: 'RegisterController',
         templateUrl: 'views/register.html'
       })
-  });
+
+  }]);
+
