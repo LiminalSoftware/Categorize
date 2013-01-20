@@ -12,7 +12,7 @@ categorizeApp.service('digestService', function($http) {
   };
 
   this.login = function() {
-    return $http.jsonp('http://localhost:3000/v1/users?callback=JSON_CALLBACK')
+    return $http.jsonp('http://wiglepedia.org/v1/users?callback=JSON_CALLBACK')
       .success(function() {
         Cookies('authorized', true, {expires: 300})
       })

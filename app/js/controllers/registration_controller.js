@@ -13,7 +13,7 @@ categorizeApp.controller('RegisterController', function($scope, $http, $location
 
       $scope.passwordHash = digestService.hexDigest($scope.username, $scope.password, 'wiglepedia login');
 
-      $http.post('http://localhost:3000/v1/users',
+      $http.post('http://wiglepedia.org/v1/users',
         { user: {
           username: $scope.username,
           email: $scope.email,

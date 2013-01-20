@@ -1,6 +1,6 @@
 categorizeApp.service('modService', function($http) {
   'use strict';
-  var baseUrl = 'http://localhost:3000/v1/mods/';
+  var baseUrl = 'http://wiglepedia.org/v1/mods/';
 
   this.getMods = function() {
     return $http.jsonp(baseUrl + 'uncategorized/100?callback=JSON_CALLBACK');

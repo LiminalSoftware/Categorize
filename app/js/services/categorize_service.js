@@ -1,5 +1,5 @@
 categorizeApp.service('categorizeService', function categorizeService($http) {
-  var url = 'http://localhost:3000/v1/categorizations'
+  var url = 'http://wiglepedia.org/v1/categorizations'
 
   this.submitCategorization = function(mod_id, category_ids) {
     return $http.post(url,
