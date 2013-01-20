@@ -6,7 +6,8 @@ categorizeApp.service('categorizeService', function categorizeService($http) {
       {categorization: {
         mod_id: mod_id,
         category_ids: category_ids }
-      }
+      },
+      {withCredentials: true}
     )
   }
 });
