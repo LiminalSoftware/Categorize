@@ -85,6 +85,12 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
         })
     } else {
       categorizeService.submitCategorization($scope.mod.id, $scope.findSelectedCategories())
+        .success(function(data) {
+          $location.path("/");
+      })
+        .error(function(error) {
+
+        })
     }
   };
 
