@@ -1,4 +1,4 @@
-var categorizeApp = angular.module('categorizeApp', ['categorizeApp'])
+var categorizeApp = angular.module('categorizeApp', [])
   .config(function($routeProvider) {
 //    $rootScope.apiBaseUrl = 'http://localhost:3000/v1';
 

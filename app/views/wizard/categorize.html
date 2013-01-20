@@ -1,0 +1,15 @@
+<div>
+    <div class="checkboxes cb">
+        <div class="mod-category" ng-repeat="category in allCategories">
+            <label>
+                <input name="{{category.name}}" class="category-check" type="checkbox" value="{{category.id}}">
+                {{category.name}}
+            </label>
+        </div>
+
+    </div>
+    <div class="center">
+        <button class="{{buttonClass}}" ng-click="authorizeOrCategorize()">{{buttonText}}</button>
+        <button class="{{registerButtonClass}}" ng-click="goRegister()">Register</button>
+    </div>
+</div>

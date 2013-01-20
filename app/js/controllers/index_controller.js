@@ -2,4 +2,8 @@ categorizeApp.controller('IndexController', function IndexController($scope, mod
   modService.getMods().success(function(data) {
     $scope.mods = data;
   });
+
+  $scope.alertMe = function(message) {
+    alert(message);
+  }
 });

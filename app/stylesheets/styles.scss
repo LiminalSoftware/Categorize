@@ -17,6 +17,10 @@ $light-green: #60bf4c;
 $light-medium-green: #449936;
 $light-darker-green: #469c35;
 $light-green-variant: #418f32;
+$light-red: #bd604b;
+$light-medium-red: #994937;
+$light-darker-red: #9c4835;
+$light-red-variant: #8f4332;
 
 //mixins & functions
 @mixin buttonColorizer($bg-image-from-color, $bg-image-to-color, $bg-color, $border-colors, $text-color) {
@@ -238,6 +242,12 @@ body {
 .blue-button {
   @extend .generic-button;
   @include buttonColorizer($torquise-light, $torquise-medium, #35909C, $torquise-medium $torquise-medium #318590, #fff);
+}
+
+.red-button {
+  text-decoration: none;
+  @extend .generic-button;
+  @include buttonColorizer($light-red, $light-medium-red, $light-darker-red, $light-medium-red $light-medium-red $light-red-variant, #fff);
 }
 
 .mod-author {
