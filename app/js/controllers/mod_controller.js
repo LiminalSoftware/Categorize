@@ -1,4 +1,14 @@
 categorizeApp.controller('ModController', function ModController($scope, $routeParams, $location, modService, categoryService, digestService, categorizeService, flashService) {
+  $scope.severities = {
+    reportMultipleModsMessage: "Thank you for notifying us about that forum post. " +
+      " currently can't categorize multiple mods simultaneously. We will in the future though!",
+
+    submitCategorizationMessage: "Thank you for helping us Categorize! Keep up the good work!",
+
+    reportNoModMessage: "Thank you for flagging that forum post as not-a-mod!"
+  };
+
+
   $scope.registerButtonClass = "green-button icon-register";
 
   $scope.wizardNext = function(url) {
@@ -21,14 +31,14 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
     var modId = $routeParams.modId;
     //we can use this distinction between no mod and multiple mod to set a field on the db
     //the post does not contain a mod!
-    flashService.notice('Thank you for flagging that forum post as not-a-mod!');
+    flashService.alert($scope.severities.reportNoModMessage);
     $scope.setAsBroken(modId);
   };
 
   $scope.reportMultipleMods = function() {
     var modId = $routeParams.modId;
     //the post contains multiple mods!
-    flashService.notice('Thank you for notifying us about that forum post. We currently can\'t categorize multiple mods simultaneously. We will in the future though!');
+    flashService.alert($scope.severities.reportMultipleModsMessage);
     $scope.setAsBroken(modId);
   };
 
@@ -98,7 +108,7 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
     } else {
       categorizeService.submitCategorization($scope.mod.id, $scope.findSelectedCategories())
         .success(function(data) {
-          flashService.notice('Thank you for helping us Categorize! Keep up the good work!');
+          flashService.notice($scope.severities.submitCategorizationMessage);
           $location.path("/");
         })
         .error(function(reason) {

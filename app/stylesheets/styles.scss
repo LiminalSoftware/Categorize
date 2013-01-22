@@ -331,21 +331,30 @@ label.validation-message {
 flash-message {
   display: block;
 
-  .notice {
+  p {
+    padding: 1em;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em;
+    &.notice {
+      background-color: #A6DDA1;
+      color: #4E573C;
+    }
+    &.alert {
+      background-color: #FC5E5B;
+      color: #752020;
+    }
 
+    &.error {
+      background-color: #FC5E5B;
+      color: #752020;
+    }
+    &.warning {
+      background-color: #EBDE7E;
+      color: #752020;
+    }
   }
 
-  .alert {
-
-  }
-
-  .warning {
-
-  }
-
-  .error {
-
-  }
 }
 
 //=============== Theme =================\\
