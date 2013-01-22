@@ -77,29 +77,30 @@ header {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    font-size: 2.3em;
+    text-align: center;
+    color: $biege;
+    font-family: 'Share Tech', sans-serif;
   }
 
   width: 100%;
   min-height: 2em;
   height: 119px;
-  font-size: 2.3em;
-  text-align: center;
-  color: $biege;
-  font-family: 'Share Tech', sans-serif;
+
   background-image: url(../images/stamps.png);
   background-position: top center;
   background-repeat: no-repeat;
   background-color: $darkred;
 
-  img {
-    margin: .5em 0 0 1em;
+  .logo-image {
+    background: url(../images/secret_rev_logo_sm_red.png) $darkred center;
+    background-repeat: no-repeat;
+    margin: .9em 0 0 .5em;
     float: left;
-
+    width: 90px;
+    height: 90px;
   }
 }
-
-
-
 
 body {
   background: url(../images/az_subtle.png) lighten($light-biege, 5%);
@@ -400,6 +401,23 @@ label.validation-message {
     -webkit-column-gap: 10px;
     column-count: 1;
     column-gap: 10px;
+  }
+
+  header {
+    height: 100px;
+    background: url(../images/stamps_tiny.png) $darkred center no-repeat;
+    .title {
+      font-size: 1.9em;
+      padding-top: 2.1em;
+    }
+    div.logo-image {
+      background: url(../images/secret_rev_logo_tiny_red.png) $darkred center;
+      background-repeat: no-repeat;
+      margin: 1.1em 0 0 .5em;
+      float: left;
+      width: 60px;
+      height: 60px;
+    }
   }
 
 }
