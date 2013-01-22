@@ -1,4 +1,4 @@
-categorizeApp.controller('RegisterController', function($scope, $http, $location, digestService) {
+categorizeApp.controller('RegisterController', function($scope, $http, $location, digestService, flashService) {
   'use strict';
 //$http.jsonp('url').success(function (data) {
 //  $scope.data = data;
@@ -21,7 +21,8 @@ categorizeApp.controller('RegisterController', function($scope, $http, $location
         }
       )
         .success(function(data) {
-          alert(data.message);
+//          alert(data.message + '\n\nThanks for registering!\n\nNOTE: you will have to sign in when you visit your first mod\nTHIS WILL BE FIXED SOON');
+          flashService.notice('Thanks for registering!');
           $location.path('/');
         })
         .error(function(data) {

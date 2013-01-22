@@ -581,6 +581,26 @@ label.validation-message {
 .hidden {
   display: none; }
 
+flash-message {
+  display: block; }
+  flash-message p {
+    padding: 1em;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em; }
+    flash-message p.notice {
+      background-color: #A6DDA1;
+      color: #4E573C; }
+    flash-message p.alert {
+      background-color: #FC5E5B;
+      color: #752020; }
+    flash-message p.error {
+      background-color: #FC5E5B;
+      color: #752020; }
+    flash-message p.warning {
+      background-color: #EBDE7E;
+      color: #752020; }
+
 @media all and (max-width: 1279px) {
   .content {
     width: 100%;
