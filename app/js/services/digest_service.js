@@ -1,10 +1,9 @@
 categorizeApp.service('digestService', function($http) {
   console.log('digestService: setting authorized to false!');
-  var authorized = false;
 
   this.isAuthorized = function() {
-    console.log('checking authorization...' + authorized);
-    return authorized;
+    console.log('checking authorization...' + Cookies('authorized'));
+    return Cookies('authorized') ? true : false;
   };
 
   this.hexDigest = function(username, secret, realm) {
@@ -15,7 +14,7 @@ categorizeApp.service('digestService', function($http) {
   this.login = function() {
     return $http.jsonp('http://localhost:3000/v1/users?callback=JSON_CALLBACK')
       .success(function() {
-        authorized = true;
+        Cookies('authorized', true, {expires: 300})
       });
 
 //      beforeSend: function(request) {
