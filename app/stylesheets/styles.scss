@@ -71,16 +71,35 @@ $dark-pink: #d54b49;
 
 //=============== Base =================\\
 header {
+  .title {
+    display: block;
+    padding-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
   width: 100%;
   min-height: 2em;
   height: 119px;
   font-size: 2.3em;
   text-align: center;
-  padding-top: 2em;
   color: $biege;
   font-family: 'Share Tech', sans-serif;
-  background: url(../images/stamps.png) $darkred no-repeat top center;
+  background-image: url(../images/stamps.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: $darkred;
+
+  img {
+    margin: .5em 0 0 1em;
+    float: left;
+
+  }
 }
+
+
+
 
 body {
   background: url(../images/az_subtle.png) lighten($light-biege, 5%);
