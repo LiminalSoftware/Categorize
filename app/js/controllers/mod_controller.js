@@ -80,10 +80,17 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
       digestService.login()
         .success(function(data) {
           console.log('logging in...');
-          $scope.buttonText = " Categorize!";
-          $scope.buttonClass = "blue-button icon-checkmark";
-          $scope.registerButtonClass = "hidden";
-          $scope.wizardNext('views/wizard/no-mod.html');
+          modService.available($scope.mod.id)
+            .success(function() {
+              $scope.buttonText = " Categorize!";
+              $scope.buttonClass = "blue-button icon-checkmark";
+              $scope.registerButtonClass = "hidden";
+              $scope.wizardNext('views/wizard/no-mod.html');
+            })
+            .error(function() {
+              flashService.alert('You\'ve already done that mod');
+              $location.path('/');
+            })
         })
         .error(function(reason) {
           console.log('error happened!?')
@@ -93,7 +100,7 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
         .success(function(data) {
           flashService.notice('Thank you for helping us Categorize! Keep up the good work!');
           $location.path("/");
-      })
+        })
         .error(function(reason) {
           flashService.error(reason);
           $location.path("/");
