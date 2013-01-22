@@ -98,7 +98,7 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
               $scope.wizardNext('views/wizard/no-mod.html');
             })
             .error(function() {
-              flashService.alert('You\'ve already done that mod');
+              flashService.warning('You\'ve already done that mod');
               $location.path('/');
             })
         })
