@@ -566,6 +566,9 @@ label.validation-message {
 .hidden {
   display: none; }
 
+flash-message {
+  display: block; }
+
 @media all and (max-width: 1279px) {
   .content {
     width: 100%;

@@ -15,6 +15,9 @@ categorizeApp.service('digestService', function($http) {
     return $http.jsonp('http://localhost:3000/v1/users?callback=JSON_CALLBACK')
       .success(function() {
         Cookies('authorized', true, {expires: 300})
+      })
+      .error(function() {
+        alert('Sign In failed: Please clear your browsers session to try again.\n\nTHIS WILL BE FIXED SOON');
       });
 
 //      beforeSend: function(request) {

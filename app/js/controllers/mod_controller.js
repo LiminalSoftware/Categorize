@@ -1,4 +1,4 @@
-categorizeApp.controller('ModController', function ModController($scope, $routeParams, $location, modService, categoryService, digestService, categorizeService) {
+categorizeApp.controller('ModController', function ModController($scope, $routeParams, $location, modService, categoryService, digestService, categorizeService, flashService) {
   $scope.registerButtonClass = "green-button icon-register";
 
   $scope.wizardNext = function(url) {
@@ -10,8 +10,9 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
       .success(function() {
         $location.path("/");
       })
-      .error(function(error) {
-        alert('error: ' + error.message);
+      .error(function(reason) {
+        alert('error: ' + reason.message);
+        flashService.error(reason);
         $location.path("/");
       });
   }
@@ -20,12 +21,14 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
     var modId = $routeParams.modId;
     //we can use this distinction between no mod and multiple mod to set a field on the db
     //the post does not contain a mod!
+    flashService.notice('Thank you for flagging that forum post as not-a-mod!');
     $scope.setAsBroken(modId);
   };
 
   $scope.reportMultipleMods = function() {
     var modId = $routeParams.modId;
     //the post contains multiple mods!
+    flashService.notice('Thank you for notifying us about that forum post. We currently can\'t categorize multiple mods simultaneously. We will in the future though!');
     $scope.setAsBroken(modId);
   };
 
@@ -82,16 +85,18 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
           $scope.registerButtonClass = "hidden";
           $scope.wizardNext('views/wizard/no-mod.html');
         })
-        .error(function() {
+        .error(function(reason) {
           console.log('error happened!?')
         })
     } else {
       categorizeService.submitCategorization($scope.mod.id, $scope.findSelectedCategories())
         .success(function(data) {
+          flashService.notice('Thank you for helping us Categorize! Keep up the good work!');
           $location.path("/");
       })
-        .error(function(error) {
-
+        .error(function(reason) {
+          flashService.error(reason);
+          $location.path("/");
         })
     }
   };

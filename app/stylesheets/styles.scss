@@ -328,6 +328,26 @@ label.validation-message {
   display: none;
 }
 
+flash-message {
+  display: block;
+
+  .notice {
+
+  }
+
+  .alert {
+
+  }
+
+  .warning {
+
+  }
+
+  .error {
+
+  }
+}
+
 //=============== Theme =================\\
 
 //TODO: media queries need to be contextual to the modules that they change
