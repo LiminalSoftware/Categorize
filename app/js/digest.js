@@ -12,7 +12,7 @@ var DigestAuthentication = Class.create();
 DigestAuthentication.prototype = {
     MAX_ATTEMPTS : 1,
     AUTHORIZATION_HEADER : "Authorization",
-    WWW_AUTHENTICATE_HEADER : 'WWW-Authenticate',
+    WWW_AUTHENTICATE_HEADER : 'Silent-Authenticate',
     NC : "00000001", //currently nc value is fixed it is not incremented
     HTTP_METHOD : "GET",
     /**

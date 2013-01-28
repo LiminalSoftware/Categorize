@@ -1,3 +1,4 @@
+<flash-message></flash-message>
 <table class="mods-table">
     <tr>
         <td colspan="2">
@@ -10,13 +11,11 @@
         </td>
     </tr>
     <tr>
-        <th>Flag as Broken</th>
         <th>Mod Name</th>
         <th>Minecraft Version</th>
         <th>Author</th>
     </tr>
     <tr ng-repeat="mod in mods | filter:query">
-        <td><button class="icon-wrench" ng-click="flag(mod.id)"></button></td>
         <td><a href="#/mods/{{mod.id}}">{{mod.name}}</a></td>
         <td class="minecraft-version">{{mod.minecraft_version}}</td>
         <td class="mod-author">{{mod.author}}</td>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="categorizeApp">
+
 <head>
     <title>Categorize</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
@@ -8,20 +9,26 @@
     <script src="js/jquery.class.min.js"></script>
     <script src="js/md5-min.js"></script>
     <script src="js/digest.js"></script>
+    <script src="js/cookies.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.js"></script>
     <script src="lib/angular/angular-resource.js"></script>
     <script src="js/app.js"></script>
+    <!--<script src="js/directives/progress.js"></script>-->
     <script src="js/controllers/mod_controller.js"></script>
     <script src="js/controllers/index_controller.js"></script>
     <script src="js/controllers/registration_controller.js"></script>
-    <script src="js/directives/registration_form.js"></script>
     <script src="js/services/mod_service.js"></script>
+    <script src="js/services/category_service.js"></script>
     <script src="js/services/digest_service.js"></script>
+    <script src="js/services/categorize_service.js"></script>
+    <script src="js/services/flash_service.js"></script>
+    <script src="js/directives/flash_directive.js"></script>
 
 </head>
 <body>
 <header>
-Mod Categorizer
+    <div class="logo-image" ></div>
+<span class="title">Mod Categorizer</span>
 </header>
 <div class="content">
     <ng-view></ng-view>

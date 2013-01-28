@@ -301,6 +301,8 @@ table {
   float: left; }
 
 .categories {
+  max-width: none;
+  overflow: hidden;
   padding: 6px;
   margin-top: 10px;
   background-color: #e9d2af;
@@ -312,12 +314,27 @@ header {
   width: 100%;
   min-height: 2em;
   height: 119px;
-  font-size: 2.3em;
-  text-align: center;
-  padding-top: 2em;
-  color: #e9d2af;
-  font-family: "Share Tech", sans-serif;
-  background: url(../images/stamps.png) #9c3634 no-repeat top center; }
+  background-image: url(../images/stamps.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: #9c3634; }
+  header .title {
+    display: block;
+    padding-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    font-size: 2.3em;
+    text-align: center;
+    color: #e9d2af;
+    font-family: "Share Tech", sans-serif; }
+  header .logo-image {
+    background: url(../images/secret_rev_logo_sm_red.png) #9c3634 center;
+    background-repeat: no-repeat;
+    margin: 0.9em 0 0 0.5em;
+    float: left;
+    width: 90px;
+    height: 90px; }
 
 body {
   background: url(../images/az_subtle.png) #eddabf;
@@ -440,7 +457,7 @@ body {
   color: #c88e37;
   font-style: italic; }
 
-.generic-button, .green-button, .blue-button {
+.generic-button, .green-button, .blue-button, .question-container .question-box button.sadpath, .question-container .question-box button.happypath {
   -webkit-font-smoothing: antialiased;
   cursor: pointer;
   display: inline-block;
@@ -494,6 +511,96 @@ body {
   border: 1px solid #e7cfab;
   min-height: 600px; }
 
+.question-container {
+  background-color: #9c3634;
+  padding: 2em 0;
+  color: #e7cfab;
+  font-size: 1.1em; }
+  .question-container .question-box {
+    width: 55%;
+    margin: 0 auto; }
+    .question-container .question-box span {
+      display: block;
+      margin-bottom: .5em; }
+    .question-container .question-box button.sadpath {
+      float: left;
+      text-decoration: none;
+      background-color: #d54b49 !important;
+      background-repeat: repeat-x;
+      background-image: -khtml-gradient(linear, left top, left bottom, from(#d54b49), to(#d54b49));
+      background-image: -moz-linear-gradient(top, #d54b49, #d54b49);
+      background-image: -ms-linear-gradient(top, #d54b49, #d54b49);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d54b49), color-stop(100%, #d54b49));
+      background-image: -webkit-linear-gradient(top, #d54b49, #d54b49);
+      background-image: -o-linear-gradient(top, #d54b49, #d54b49);
+      background-image: linear-gradient(#d54b49, #d54b49);
+      border-color: #d54b49 #d54b49 #d54b49;
+      color: white !important;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.19); }
+    .question-container .question-box button.happypath {
+      float: right;
+      text-decoration: none;
+      background-color: #469c35 !important;
+      background-repeat: repeat-x;
+      background-image: -khtml-gradient(linear, left top, left bottom, from(#60bf4c), to(#449936));
+      background-image: -moz-linear-gradient(top, #449936, #449936);
+      background-image: -ms-linear-gradient(top, #449936, #449936);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #60bf4c), color-stop(100%, #449936));
+      background-image: -webkit-linear-gradient(top, #60bf4c, #449936);
+      background-image: -o-linear-gradient(top, #60bf4c, #449936);
+      background-image: linear-gradient(#60bf4c, #449936);
+      border-color: #449936 #449936 #418f32;
+      color: white !important;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.19);
+      color: #60bf4c; }
+
+.progressbar-container {
+  float: none;
+  clear: both;
+  margin: 0 auto;
+  border: 1px solid #501c1a;
+  background-color: #762927;
+  min-height: 9px;
+  height: 9px; }
+  .progressbar-container .slider {
+    width: 33.33%;
+    min-height: 7px;
+    background-color: #60bf4c; }
+
+input:focus:invalid {
+  background: white url("../images/invalid.png") no-repeat 98% center !important;
+  border-color: #f36; }
+
+input:required:valid {
+  background: white url("../images/valid.png") no-repeat 98% center; }
+
+label.validation-message {
+  display: none;
+  color: red; }
+
+.hidden {
+  display: none; }
+
+flash-message {
+  display: block; }
+  flash-message p {
+    padding: 1em;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em; }
+    flash-message p.notice {
+      background-color: #A6DDA1;
+      color: #4E573C; }
+    flash-message p.alert {
+      background-color: #FC5E5B;
+      color: #752020; }
+    flash-message p.error {
+      background-color: #FC5E5B;
+      color: #752020; }
+    flash-message p.warning {
+      background-color: #EBDE7E;
+      color: #752020; }
+
 @media all and (max-width: 1279px) {
   .content {
     width: 100%;
@@ -529,4 +636,18 @@ body {
     -webkit-column-count: 1;
     -webkit-column-gap: 10px;
     column-count: 1;
-    column-gap: 10px; } }
+    column-gap: 10px; }
+
+  header {
+    height: 100px;
+    background: url(../images/stamps_tiny.png) #9c3634 center no-repeat; }
+    header .title {
+      font-size: 1.9em;
+      padding-top: 2.1em; }
+    header div.logo-image {
+      background: url(../images/secret_rev_logo_tiny_red.png) #9c3634 center;
+      background-repeat: no-repeat;
+      margin: 1.1em 0 0 0.5em;
+      float: left;
+      width: 60px;
+      height: 60px; } }

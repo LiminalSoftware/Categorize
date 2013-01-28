@@ -1,34 +1,29 @@
-categorizeApp.service('digestService', function() {
-  return {
-    authorized: false,
+categorizeApp.service('digestService', function($http) {
+  console.log('digestService: setting authorized to false!');
 
-    isAuthorized: function() {
-      return this.authorized;
-    },
+  this.isAuthorized = function() {
+    console.log('checking authorization...' + Cookies('authorized'));
+    return Cookies('authorized') ? true : false;
+  };
 
-    hexDigest: function(username, secret, realm) {
-      realm = realm || "Application";
-      return hex_md5(username + ":" + realm + ":" + secret);
-    },
+  this.hexDigest = function(username, secret, realm) {
+    realm = realm || "Application";
+    return hex_md5(username + ":" + realm + ":" + secret);
+  };
 
-    login: function(uri) {
-      $.ajax({
-        url: uri,
-        type: this.HTTP_METHOD,
-        dataType: 'jsonp',
-        beforeSend: function(request) {
-          if (typeof authorizationHeader != 'undefined') {
-            request.setRequestHeader(digestAuth.AUTHORIZATION_HEADER, authorizationHeader);
-          }
-        },
-        success: function(response) {
-//          eventBroadcast.broadcast('event:authorized', response.message);
-
-        },
-        error: function(response) {
-          //don't know wat to do yet
-        }
+  this.login = function() {
+    return $http.jsonp('http://localhost:3000/v1/users?callback=JSON_CALLBACK')
+      .success(function() {
+        Cookies('authorized', true, {expires: 300})
+      })
+      .error(function() {
+        alert('Sign In failed: Please clear your browsers session to try again.\n\nTHIS WILL BE FIXED SOON');
       });
-    }
+
+//      beforeSend: function(request) {
+//        if (typeof authorizationHeader != 'undefined') {
+//          request.setRequestHeader(digestAuth.AUTHORIZATION_HEADER, authorizationHeader);
+//        }
+//      },
   };
 });

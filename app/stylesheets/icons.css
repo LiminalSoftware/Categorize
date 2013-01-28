@@ -58,3 +58,6 @@ content: "\e008"
 .icon-register:before {
     content: "\e009"
 }
+.icon-cancel:before {
+    content: "\e00a";
+}
