@@ -3,12 +3,12 @@
     <span class="left"><a href="#/">Back</a></span>
 
     <h1 class="mod-title">{{mod.name}}</h1>
-
+<div class="help-text" ng-bind-html-unsafe="helpText"></div>
     <div class="wizard">
         <ng-include src='wizardPartial'></ng-include>
     </div>
 </div>
 <span class="forum-url-display"><a class="icon-link" ng-href="{{mod.forum_url}}" target="_blank"> {{mod.forum_url}}</a></span>
-<iframe src="{{mod.forum_url}}" class="iframe block center ninety">
+<!--<iframe src="{{mod.forum_url}}" class="iframe block center ninety">-->
 
 </iframe>

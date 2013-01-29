@@ -124,4 +124,9 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
       $scope.mod = data;
     }
   );
+  $scope.helpText = "&nbsp;";
+  $scope.populateHelpText = function(text) {
+    $scope.helpText = text;
+  }
+
 });

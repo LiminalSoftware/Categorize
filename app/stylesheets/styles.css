@@ -309,6 +309,13 @@ table {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px; }
+  .categories .help-text {
+    background-color: #debb87;
+    padding: .6em;
+    color: #805b23;
+    margin-bottom: 1.5em;
+    font-family: 'Share Tech', sans-serif;
+    font-size: 1.2em; }
 
 header {
   width: 100%;
@@ -327,11 +334,11 @@ header {
     font-size: 2.3em;
     text-align: center;
     color: #e9d2af;
-    font-family: "Share Tech", sans-serif; }
+    font-family: 'Share Tech', sans-serif; }
   header .logo-image {
     background: url(../images/secret_rev_logo_sm_red.png) #9c3634 center;
     background-repeat: no-repeat;
-    margin: 0.9em 0 0 0.5em;
+    margin: .9em 0 0 .5em;
     float: left;
     width: 90px;
     height: 90px; }
@@ -355,10 +362,10 @@ body {
   font-size: 1.6em;
   color: #9c3634;
   margin-bottom: 8px;
-  font-family: "Share Tech", sans-serif; }
+  font-family: 'Share Tech', sans-serif; }
 
 .mods-table {
-  font-family: "Share Tech", sans-serif;
+  font-family: 'Share Tech', sans-serif;
   width: 100%;
   margin: 10px;
   background-color: #efddc3;
@@ -393,11 +400,11 @@ body {
   .registration-form-common h3, .registration-form h3, .registration-form-error h3 {
     padding-bottom: 2em;
     color: #9c3634;
-    font-family: "Share Tech", sans-serif; }
+    font-family: 'Share Tech', sans-serif; }
   .registration-form-common label, .registration-form label, .registration-form-error label {
     font-size: 1.1em;
     color: #9c3634;
-    font-family: "Share Tech", sans-serif; }
+    font-family: 'Share Tech', sans-serif; }
   .registration-form-common input[type="text"], .registration-form input[type="text"], .registration-form-error input[type="text"],
   .registration-form-common input[type="email"],
   .registration-form input[type="email"],
@@ -647,7 +654,7 @@ flash-message {
     header div.logo-image {
       background: url(../images/secret_rev_logo_tiny_red.png) #9c3634 center;
       background-repeat: no-repeat;
-      margin: 1.1em 0 0 0.5em;
+      margin: 1.1em 0 0 .5em;
       float: left;
       width: 60px;
       height: 60px; } }

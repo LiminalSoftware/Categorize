@@ -1,8 +1,10 @@
 <div class="question">
     <div id="q3" class="checkboxes cb">
         <div class="mod-category" ng-repeat="category in allCategories">
-            <label>
-                <input name="{{category.name}}" class="category-check" type="checkbox" value="{{category.id}}">
+            <label class="category-check"
+                   ng-mouseover="populateHelpText(category.description)"
+                   ng-mouseleave='populateHelpText("&nbsp;")'>
+                <input name="{{category.name}}" type="checkbox" value="{{category.id}}">
                 {{category.name}}
             </label>
         </div>

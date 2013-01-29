@@ -67,7 +67,18 @@ $dark-pink: #d54b49;
   margin-top: 10px;
   background-color: $biege;
   @include smooth-corners;
+
+  .help-text {
+    background-color: darken($biege, 10%);
+    padding: .6em;
+    //color: darken($biege, 40%);
+    color: scale-color($biege, $lightness: -60%);
+    margin-bottom: 1.5em;
+    font-family: 'Share Tech', sans-serif;
+    font-size: 1.2em;
+  }
 }
+
 
 //=============== Base =================\\
 header {
@@ -450,4 +461,5 @@ flash-message {
   }
 
 }
+
 
