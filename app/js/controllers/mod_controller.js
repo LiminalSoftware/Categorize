@@ -76,7 +76,7 @@ categorizeApp.controller('ModController', function ModController($scope, $routeP
   $scope.findSelectedCategories = function() {
     var checked = [];
 
-    $('input[type="checkbox"].category-check').each(
+    $('.category-check [type="checkbox"]').each(
       function(index, element) {
         element.checked ? checked.push(element.value) : undefined;
       }
